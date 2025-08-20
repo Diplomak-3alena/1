@@ -58,7 +58,7 @@
              color: #1C1C1C;
         }
         .card-medium {
-            background: #00695C;
+            background: #00695C; /* Original Teal Color */
         }
         .whatsapp-fab {
             position: fixed;
@@ -100,9 +100,36 @@
             border-radius: 9999px;
             transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
         }
+        /* Modal Styles */
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+        /* Multi-step form */
+        .form-step {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .form-step.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .progress-bar-fill {
+            transition: width 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <!-- Slogan Header -->
+    <div class="bg-black py-3">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-center gold-accent tracking-wider">دبلومك علينا</h1>
+    </div>
 
     <!-- Scarcity Banner -->
     <div class="bg-yellow-400 text-center p-2 text-black font-bold text-sm">
@@ -112,12 +139,12 @@
     <!-- Hero Section -->
     <header class="hero-gradient py-16 sm:py-20 px-4 text-center">
         <div class="container mx-auto max-w-4xl">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">وداعًا لضغط مهام الدبلوم…</h1>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">خليك مرتاح وإحنا مننجز عنك!</h2>
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">وداعًا لضغط مهام الدبلوم…</h2>
+            <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">خليك مرتاح وإحنا مننجز عنك!</h3>
             <p class="text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto">اختر باقتك الشهرية، أو باقة الدبلوم الكاملة للتوفير والراحة القصوى.</p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a href="#pricing" class="gold-button font-bold py-3 px-8 rounded-lg text-lg w-full sm:w-auto">اشترك الآن</a>
-                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1." target="_blank" class="secondary-button font-bold py-3 px-8 rounded-lg text-lg w-full sm:w-auto">استفسر عبر واتساب</a>
+                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%Bﻌ%D8%A7%D8%B1." target="_blank" class="secondary-button font-bold py-3 px-8 rounded-lg text-lg w-full sm:w-auto">استفسر عبر واتساب</a>
             </div>
         </div>
     </header>
@@ -179,7 +206,8 @@
                                 </div>
                             </div>
                             <ul class="space-y-4 mb-8 flex-grow">
-                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>كل المهام الشهرية + المقالات التأملية</strong> (مع ضمان نسبة الاستلال)</span></li>
+                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>كل المهام الشهرية</strong></span></li>
+                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>جميع المقالات التأملية والبنائية والختامية مع ضمان نسبة الاستلال</span></li>
                                 <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>البحث الاستقصائي كاملًا</strong> + العرض التقديمي</span></li>
                                 <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>أداة التطور المهني (البنائية والختامية)</span></li>
                                 <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>تقرير الجلسة الإرشادية (البنائية والختامية)</span></li>
@@ -201,12 +229,12 @@
                                     <p class="text-2xl font-bold text-gray-300 line-through old-price hidden"></p>
                                     <div>
                                         <span class="text-4xl font-extrabold price">17</span>
-                                        <span class="text-lg font-medium billing-period">دنانير/شهر</span>
+                                        <span class="text-lg font-medium billing-period">دينار/شهر</span>
                                     </div>
                                 </div>
                             </div>
                             <ul class="space-y-4 mb-8 flex-grow">
-                                <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>يشمل <strong>جميع المهام الشهرية</strong> (≈ 7–8 مهام)</span></li>
+                                <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>يشمل <strong>جميع المهام الشهرية</strong></span></li>
                                 <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>أداة تقييم التطور المهني البنائية</span></li>
                                 <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>تقرير الجلسة الإرشادية البنائية</span></li>
                                 <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>تحسين الصياغة والتدقيق اللغوي</span></li>
@@ -237,6 +265,18 @@
                         </div>
                         <!-- Category 2 -->
                         <div class="flex flex-col">
+                            <h3 class="text-xl font-bold gold-accent mb-4 border-b border-yellow-400/20 pb-2">الأبحاث والمقالات</h3>
+                            <ul class="space-y-3 text-lg flex-grow">
+                                <li class="flex justify-between items-start">
+                                    <span class="flex-1">المقالات (تأملية، بنائية، ختامية)<br><small class="text-gray-400 text-sm">مع ضمان التوثيق ونسبة التشابه والتعديل</small></span> 
+                                    <span class="font-bold">12 دينار</span>
+                                </li>
+                                <li class="flex justify-between"><span>البحث الاستقصائي</span> <span class="font-bold">50 دينار</span></li>
+                                <li class="flex justify-between"><span>عرض تقديمي للبحث</span> <span class="font-bold">10 دنانير</span></li>
+                            </ul>
+                        </div>
+                        <!-- Category 3 -->
+                        <div class="flex flex-col">
                             <h3 class="text-xl font-bold gold-accent mb-4 border-b border-yellow-400/20 pb-2">أدوات التقييم والتقارير</h3>
                             <ul class="space-y-3 text-lg flex-grow">
                                  <li class="flex justify-between items-start">
@@ -249,23 +289,16 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- Category 3 -->
-                        <div class="flex flex-col">
-                            <h3 class="text-xl font-bold gold-accent mb-4 border-b border-yellow-400/20 pb-2">الأبحاث والمقالات</h3>
-                            <ul class="space-y-3 text-lg flex-grow">
-                                <li class="flex justify-between items-start">
-                                    <span class="flex-1">المقالات (تأملية، بنائية، ختامية)<br><small class="text-gray-400 text-sm">مع ضمان التوثيق ونسبة التشابه والتعديل</small></span> 
-                                    <span class="font-bold">12 دينار</span>
-                                </li>
-                                <li class="flex justify-between"><span>البحث الاستقصائي</span> <span class="font-bold">50 دينار</span></li>
-                                <li class="flex justify-between"><span>عرض تقديمي للبحث</span> <span class="font-bold">10 دنانير</span></li>
-                            </ul>
-                        </div>
                         <!-- Category 4 -->
                         <div class="flex flex-col">
                              <h3 class="text-xl font-bold gold-accent mb-4 border-b border-yellow-400/20 pb-2">خدمات إضافية</h3>
                              <ul class="space-y-3 text-lg flex-grow">
                                 <li class="flex justify-between"><span>تجهيز ملف الإنجاز الإلكتروني</span> <span class="font-bold">10 دنانير</span></li>
+                                <li class="flex justify-between"><span>تدقيق، تنسيق، وإعادة صياغة</span> <span class="font-bold">5 دنانير</span></li>
+                                <li class="flex justify-between items-start">
+                                    <span class="flex-1">تعديل الأبحاث<br><small class="text-gray-400 text-sm">(عدا البحث الاستقصائي)</small></span> 
+                                    <span class="font-bold">7 دنانير</span>
+                                </li>
                              </ul>
                         </div>
                     </div>
@@ -334,55 +367,65 @@
         <section id="contact" class="bg-gray-900/20 py-16 sm:py-20 px-4">
             <div class="container mx-auto max-w-xl text-center">
                 <h2 class="text-3xl font-bold mb-4">هل أنت جاهز للبدء؟</h2>
-                <p class="text-lg text-gray-300 mb-4">
-                    املأ النموذج أدناه، أو <strong class="gold-accent">تواصل معنا مباشرة</strong> بالضغط على الزر:
+                <p class="text-xl text-gray-300 mb-6">
+                    أسهل طريقة للبدء هي عبر التواصل المباشر معنا.
                 </p>
-                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg mb-8 transition-colors">
-                    تواصل معنا عبر واتساب
+                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1." target="_blank" class="inline-block gold-button font-bold py-4 px-10 rounded-lg text-xl mb-6 transition-transform hover:scale-105">
+                    اطلب الآن عبر واتساب
                 </a>
+                <p class="text-lg text-gray-300 mb-8">
+                    أو <strong class="gold-accent">املأ بياناتك أولاً</strong> بالضغط على الزر أدناه:
+                </p>
+                <button id="show-form-btn" class="secondary-button font-bold py-3 px-8 rounded-lg text-lg">
+                    املأ بياناتك
+                </button>
                 
-                <!-- Payment Methods -->
-                <div class="mb-8">
-                    <h4 class="text-lg font-bold text-gray-200 mb-3">طرق الدفع المعتمدة</h4>
-                    <div class="flex justify-center items-center">
-                        <div class="bg-white rounded-lg px-4 py-2">
-                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Orange_Money_logo.svg/2560px-Orange_Money_logo.svg.png" alt="Orange Money Logo" class="h-8" onerror="this.onerror=null;this.src='https://placehold.co/120x32/FF7900/FFFFFF?text=Orange+Money';">
+                <form id="contactForm" class="text-right mt-8 hidden">
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mb-6">
+                        <div id="progress-bar" class="bg-yellow-400 h-2.5 rounded-full progress-bar-fill" style="width: 0%"></div>
+                    </div>
+
+                    <!-- Form Steps -->
+                    <div id="form-steps">
+                        <div class="form-step active">
+                            <label for="name" class="block text-white text-lg font-bold mb-3">ما هو اسمك الكامل؟</label>
+                            <input type="text" id="name" name="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-yellow-400 text-lg" required>
+                        </div>
+                        <div class="form-step">
+                            <label for="major" class="block text-white text-lg font-bold mb-3">ما هو تخصصك؟</label>
+                            <input type="text" id="major" name="major" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-yellow-400 text-lg">
+                        </div>
+                        <div class="form-step">
+                            <label for="school" class="block text-white text-lg font-bold mb-3">ما اسم مدرستك / منطقتك؟</label>
+                            <input type="text" id="school" name="school" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-yellow-400 text-lg">
+                        </div>
+                        <div class="form-step">
+                            <label for="grades" class="block text-white text-lg font-bold mb-3">ما هي الصفوف التي تدرسها؟</label>
+                            <input type="text" id="grades" name="grades" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-yellow-400 text-lg">
+                        </div>
+                        <div class="form-step">
+                            <label for="advisor" class="block text-white text-lg font-bold mb-3">ما اسم مرشدك الأكاديمي؟ (اختياري)</label>
+                            <input type="text" id="advisor" name="advisor" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-yellow-400 text-lg">
+                        </div>
+                        <div class="form-step">
+                            <label for="package" class="block text-white text-lg font-bold mb-3">ما هي الباقة التي تهمك؟</label>
+                            <select id="package" name="package" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-yellow-400 text-lg">
+                                <option>الباقة الذهبية</option>
+                                <option>الباقة المتوسطة</option>
+                                <option>الباقة الأساسية</option>
+                                <option>مهمة فردية</option>
+                                <option>استفسار عام</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-
-                <form id="contactForm" class="text-right">
-                    <div class="mb-4">
-                        <label for="name" class="block text-white text-sm font-bold mb-2">الاسم الكامل</label>
-                        <input type="text" id="name" name="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-yellow-400" required>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="mt-8 flex justify-between items-center">
+                        <button type="button" id="prev-btn" class="secondary-button font-bold py-2 px-6 rounded-lg">السابق</button>
+                        <button type="button" id="next-btn" class="gold-button font-bold py-2 px-6 rounded-lg">التالي</button>
+                        <button type="submit" id="submit-btn" class="gold-button font-bold py-3 px-8 rounded-lg text-lg hidden">إرسال الطلب</button>
                     </div>
-                     <div class="mb-4">
-                        <label for="major" class="block text-white text-sm font-bold mb-2">التخصص</label>
-                        <input type="text" id="major" name="major" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-yellow-400">
-                    </div>
-                    <div class="mb-4">
-                        <label for="school" class="block text-white text-sm font-bold mb-2">المدرسة / المنطقة</label>
-                        <input type="text" id="school" name="school" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-yellow-400">
-                    </div>
-                    <div class="mb-4">
-                        <label for="grades" class="block text-white text-sm font-bold mb-2">الصفوف التي تدرسها</label>
-                        <input type="text" id="grades" name="grades" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-yellow-400">
-                    </div>
-                    <div class="mb-4">
-                        <label for="advisor" class="block text-white text-sm font-bold mb-2">اسم المرشد الأكاديمي</label>
-                        <input type="text" id="advisor" name="advisor" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-yellow-400">
-                    </div>
-                    <div class="mb-6">
-                        <label for="package" class="block text-white text-sm font-bold mb-2">الباقة المختارة</label>
-                        <select id="package" name="package" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-yellow-400">
-                            <option>الباقة الذهبية</option>
-                            <option>الباقة المتوسطة</option>
-                            <option>الباقة الأساسية</option>
-                            <option>مهمة فردية</option>
-                            <option>استفسار عام</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="w-full gold-button font-bold py-3 px-6 rounded-lg text-lg">إرسال الطلب (لتعبئة البيانات)</button>
                 </form>
             </div>
         </section>
@@ -395,12 +438,27 @@
             <div class="mt-2">
                 <a href="#" class="hover:text-white">سياسة الخصوصية</a>
                 <span class="mx-2">|</span>
-                <a href="#" class="hover:text-white">إخلاء مسؤولية</a>
+                <button id="disclaimer-btn" class="hover:text-white underline">إخلاء مسؤولية</button>
             </div>
-            <p class="mt-2 text-xs">نحن نساعد في الصياغة الأكاديمية وإنجاز المهام، مع التزام الطالب بالتحقق من متطلبات الاستلال والتشابه النهائية.</p>
+            <p class="mt-2 text-xs">
+                خدماتنا دعمية وإرشادية (تنظيم، صياغة، مراجعة، تدقيق). يلتزم الطالب بسياسات مؤسسته بشأن النزاهة الأكاديمية.
+            </p>
         </div>
     </footer>
     
+    <!-- Disclaimer Modal -->
+    <div id="disclaimer-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 modal opacity-0 pointer-events-none">
+        <div class="modal-content bg-gray-800 rounded-2xl shadow-xl w-full max-w-2xl p-8 text-right transform scale-95">
+            <h3 class="text-2xl font-bold gold-accent mb-4">إخلاء المسؤولية (Disclaimer)</h3>
+            <div class="text-gray-300 space-y-4">
+                <p>خدمة 'دبلومك علينا' تقدم المساعدة في إعداد وصياغة المهام الأكاديمية لتكون بمثابة <strong class="font-bold text-yellow-300">نموذج استرشادي ومرجع أساسي</strong>. الهدف من خدماتنا هو توجيه العميل ومساعدته على فهم المتطلبات الأكاديمية.</p>
+                <p>تقع على العميل <strong class="font-bold text-yellow-300">المسؤولية الكاملة</strong> لاستخدام المحتوى المُسلّم كنقطة انطلاق لعمله الخاص، مع ضرورة إجراء التعديلات اللازمة ليتوافق مع أسلوبه الشخصي ومتطلبات النزاهة الأكاديمية للمؤسسة التعليمية التابع لها.</p>
+                <p>نحن لا نضمن الحصول على علامة معينة، واستخدامك لخدماتنا هو إقرار منك بفهم وموافقة على هذه الشروط.</p>
+            </div>
+            <button id="close-modal-btn" class="mt-6 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">إغلاق</button>
+        </div>
+    </div>
+
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/962779283635" target="_blank" class="whatsapp-fab bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg" aria-label="تواصل معنا عبر واتساب">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
@@ -416,36 +474,30 @@
         const priceContainers = document.querySelectorAll('.price-container');
         const ctaButtons = document.querySelectorAll('.cta-button');
 
-        // Function to update the slider and prices
         const updatePricing = (activeButton) => {
             if (!activeButton) return;
-
             const period = activeButton.dataset.period;
             const isMonthly = period === 'monthly';
-
-            // 1. Update slider position and width
             const buttonWidth = activeButton.offsetWidth;
             const offset = activeButton.offsetLeft;
             slider.style.width = `${buttonWidth}px`;
             slider.style.transform = `translateX(${offset}px)`;
-
-            // 2. Update button active state
             buttons.forEach(btn => btn.classList.remove('active'));
             activeButton.classList.add('active');
-
-            // 3. Update prices and text
             priceContainers.forEach(container => {
                 const priceEl = container.querySelector('.price');
                 const periodEl = container.querySelector('.billing-period');
                 const oldPriceEl = container.querySelector('.old-price');
-                
                 const monthlyPrice = container.dataset.monthly;
                 const fullPrice = container.dataset.full;
                 const oldFullPrice = container.dataset.oldFull;
-
                 if (isMonthly) {
                     priceEl.textContent = monthlyPrice;
-                    periodEl.textContent = 'دنانير/شهر';
+                    if (monthlyPrice === '9') {
+                        periodEl.textContent = 'دنانير/شهر';
+                    } else {
+                        periodEl.textContent = 'دينار/شهر';
+                    }
                     oldPriceEl.classList.add('hidden');
                 } else {
                     priceEl.textContent = fullPrice;
@@ -454,8 +506,6 @@
                     oldPriceEl.classList.remove('hidden');
                 }
             });
-            
-            // 4. Update CTA button texts
             ctaButtons.forEach(button => {
                 if(isMonthly) {
                     button.textContent = button.dataset.monthlyText;
@@ -464,53 +514,93 @@
                 }
             });
         };
-
-        // Add click event listeners to buttons
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                updatePricing(button);
-            });
-        });
-
-        // Initialize on page load and on resize
-        const initializeSlider = () => {
-            const initialActiveButton = toggle.querySelector('.toggle-btn.active');
-            updatePricing(initialActiveButton);
-        };
-        
+        buttons.forEach(button => button.addEventListener('click', () => updatePricing(button)));
+        const initializeSlider = () => updatePricing(toggle.querySelector('.toggle-btn.active'));
         window.addEventListener('load', initializeSlider);
         window.addEventListener('resize', initializeSlider);
 
-
-        // --- Contact Form Logic ---
+        // --- Multi-step Form Logic ---
+        const showFormBtn = document.getElementById('show-form-btn');
         const contactForm = document.getElementById('contactForm');
+        const formSteps = Array.from(document.querySelectorAll('.form-step'));
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const progressBar = document.getElementById('progress-bar');
+        let currentStep = 0;
+
+        showFormBtn.addEventListener('click', () => {
+            contactForm.classList.remove('hidden');
+            showFormBtn.classList.add('hidden');
+            updateForm();
+        });
+
+        const updateForm = () => {
+            formSteps.forEach((step, index) => {
+                step.classList.toggle('active', index === currentStep);
+            });
+            
+            progressBar.style.width = `${((currentStep + 1) / formSteps.length) * 100}%`;
+            
+            prevBtn.classList.toggle('hidden', currentStep === 0);
+            nextBtn.classList.toggle('hidden', currentStep === formSteps.length - 1);
+            submitBtn.classList.toggle('hidden', currentStep !== formSteps.length - 1);
+        };
+
+        nextBtn.addEventListener('click', () => {
+            if (currentStep < formSteps.length - 1) {
+                currentStep++;
+                updateForm();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateForm();
+            }
+        });
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const name = document.getElementById('name').value;
             const major = document.getElementById('major').value;
             const school = document.getElementById('school').value;
             const grades = document.getElementById('grades').value;
             const advisor = document.getElementById('advisor').value;
             const package = document.getElementById('package').value;
-            
             const whatsappNumber = '962779283635';
-            
-            let message = `مرحبًا، أود الاستفسار أو الاشتراك في إحدى باقاتكم.\n\n`;
-            message += `--- *تفاصيل الطلب* ---\n\n`;
-            message += `👤 *الاسم:* ${name}\n`;
-            message += `📚 *التخصص:* ${major || 'لم يحدد'}\n`;
-            message += `🏫 *المدرسة/المنطقة:* ${school || 'لم تحدد'}\n`;
-            message += `👨‍👧‍👦 *الصفوف:* ${grades || 'لم تحدد'}\n`;
-            message += `🧑‍🏫 *المرشد الأكاديمي:* ${advisor || 'لم يحدد'}\n`;
-            message += `📦 *الباقة المختارة:* ${package}\n\n`;
-            message += `----------------------\n\n`;
-            message += `الرجاء تزويدي بالمزيد من التفاصيل. شكرًا.`;
-
+            let message = `مرحبًا، أود الاستفسار أو الاشتراك في إحدى باقاتكم.\n\n--- *تفاصيل الطلب* ---\n\n👤 *الاسم:* ${name}\n📚 *التخصص:* ${major || 'لم يحدد'}\n🏫 *المدرسة/المنطقة:* ${school || 'لم تحدد'}\n👨‍👧‍👦 *الصفوف:* ${grades || 'لم تحدد'}\n🧑‍🏫 *المرشد الأكاديمي:* ${advisor || 'لم يحدد'}\n📦 *الباقة المختارة:* ${package}\n\n----------------------\n\nالرجاء تزويدي بالمزيد من التفاصيل. شكرًا.`;
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             window.open(whatsappURL, '_blank');
-            contactForm.reset();
+        });
+
+
+        // --- Modal Logic ---
+        const disclaimerBtn = document.getElementById('disclaimer-btn');
+        const modal = document.getElementById('disclaimer-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        
+        const openModal = () => {
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.querySelector('.modal-content').classList.remove('scale-95');
+        };
+
+        const closeModal = () => {
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-content').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('pointer-events-none');
+            }, 300); // Wait for transition to finish
+        };
+
+        disclaimerBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
     </script>
 </body>
