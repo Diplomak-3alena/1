@@ -14,62 +14,145 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         /* Custom Styles */
+        :root {
+            --primary-dark: #00382E;
+            --primary: #004D40;
+            --primary-light: #00695C;
+            --accent: #FFD700;
+            --accent-dark: #C5A200;
+            --dark: #1C1C1C;
+            --light: #F5F5F5;
+        }
+        
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: #004D40; /* Phthalo Green */
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
             color: #FFFFFF;
+            line-height: 1.7;
         }
+        
         .hero-gradient {
-            background: linear-gradient(180deg, #004D40 0%, #00695C 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .hero-gradient::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23FFD700' fill-opacity='0.07' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
         .gold-accent {
-            color: #FFD700;
+            color: var(--accent);
         }
+        
         .gold-border {
-            border-color: #FFD700;
+            border-color: var(--accent);
         }
+        
         .gold-button {
-            background-color: #FFD700;
-            color: #1C1C1C;
+            background: linear-gradient(145deg, var(--accent), var(--accent-dark));
+            color: var(--dark);
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            font-weight: 700;
         }
+        
         .gold-button:hover {
-            background-color: #C5A200;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.4);
         }
+        
         .secondary-button {
             background-color: transparent;
             border: 2px solid #FFFFFF;
             color: #FFFFFF;
             transition: all 0.3s ease;
         }
+        
         .secondary-button:hover {
             background-color: #FFFFFF;
-            color: #004D40;
+            color: var(--primary);
         }
+        
         .card-dark {
-            background-color: #1C1C1C;
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
         }
+        
         .card-light {
-             background-color: #F5F5F5;
-             color: #1C1C1C;
+            background: linear-gradient(145deg, #FFFFFF, #F0F0F0);
+            color: var(--dark);
         }
+        
         .card-medium {
-            background: #00695C; /* Original Teal Color */
+            background: linear-gradient(145deg, var(--primary-light), #00897B);
         }
-        .whatsapp-fab {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 50;
+        
+        .slogan-header {
+            background: linear-gradient(to right, #000000, #00110e);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .feature-item {
             transition: transform 0.3s ease;
         }
-        .whatsapp-fab:hover {
-            transform: scale(1.1);
+        
+        .feature-item:hover {
+            transform: translateX(-5px);
         }
+        
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 50;
+            transition: all 0.3s ease;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .whatsapp-fab:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
         /* Toggle Switch Styles */
         .toggle-container {
             background-color: rgba(0, 0, 0, 0.2);
@@ -78,73 +161,128 @@
             display: inline-flex;
             position: relative;
         }
+        
         .toggle-btn {
             padding: 8px 24px;
             border-radius: 9999px;
             cursor: pointer;
             transition: color 0.3s ease;
-            color: #a0aec0; /* gray-500 */
+            color: #a0aec0;
             font-weight: 500;
             white-space: nowrap;
             z-index: 10;
         }
+        
         .toggle-btn.active {
-            color: #1C1C1C; /* dark text */
+            color: #1C1C1C;
         }
+        
         .toggle-slider {
             position: absolute;
             top: 4px;
             left: 0;
             height: calc(100% - 8px);
-            background-color: #FFD700; /* gold */
+            background-color: var(--accent);
             border-radius: 9999px;
             transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
         }
+        
         /* Modal Styles */
         .modal {
             transition: opacity 0.3s ease;
         }
+        
         .modal-content {
             transition: transform 0.3s ease;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 16px;
         }
+        
         /* Multi-step form */
         .form-step {
             display: none;
             animation: fadeIn 0.5s;
         }
+        
         .form-step.active {
             display: block;
         }
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        
         .progress-bar-fill {
             transition: width 0.3s ease-in-out;
+            background: linear-gradient(to right, var(--accent), var(--accent-dark));
+        }
+        
+        /* FAQ Styles */
+        details {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        details[open] {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        summary {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            list-style: none;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        summary::after {
+            content: "+";
+            position: absolute;
+            left: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #000000, #00110e);
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Slogan Header -->
-    <div class="bg-black py-3">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-center gold-accent tracking-wider">دبلومك علينا</h1>
+    <div class="slogan-header py-4">
+        <h1 class="text-4xl md:text-5xl font-black text-center gold-accent tracking-wider">دبلومك علينا</h1>
+        <p class="text-center text-yellow-200 mt-2 text-sm">خدمات أكاديمية احترافية لإنجاز مهام الدبلوم المهني</p>
     </div>
 
     <!-- Scarcity Banner -->
-    <div class="bg-yellow-400 text-center p-2 text-black font-bold text-sm">
-        <p>المقاعد محدودة – الأسعار الحالية لفترة محدودة!</p>
+    <div class="bg-gradient-to-r from-yellow-400 to-yellow-300 text-center p-3 text-black font-bold text-sm">
+        <p>المقاعد محدودة</p>
     </div>
 
     <!-- Hero Section -->
-    <header class="hero-gradient py-16 sm:py-20 px-4 text-center">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">وداعًا لضغط مهام الدبلوم…</h2>
-            <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">خليك مرتاح وإحنا مننجز عنك!</h3>
-            <p class="text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto">اختر باقتك الشهرية، أو باقة الدبلوم الكاملة للتوفير والراحة القصوى.</p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="#pricing" class="gold-button font-bold py-3 px-8 rounded-lg text-lg w-full sm:w-auto">اشترك الآن</a>
-                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%Bﻌ%D8%A7%D8%B1." target="_blank" class="secondary-button font-bold py-3 px-8 rounded-lg text-lg w-full sm:w-auto">استفسر عبر واتساب</a>
+    <header class="hero-gradient py-16 sm:py-24 px-4 text-center relative">
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight">وداعًا لضغط مهام الدبلوم…</h2>
+            <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gold-accent">خليك مرتاح وإحنا مننجز عنك!</h3>
+            <p class="text-lg sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-gray-100">اختر باقتك الشهرية، أو باقة الدبلوم الكاملة للتوفير والراحة القصوى.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                <a href="#pricing" class="gold-button font-bold py-4 px-10 rounded-full text-lg w-full sm:w-auto">اشترك الآن</a>
+                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1." target="_blank" class="secondary-button font-bold py-4 px-10 rounded-full text-lg w-full sm:w-auto">استفسر عبر واتساب</a>
             </div>
         </div>
     </header>
@@ -153,7 +291,8 @@
         <!-- Pricing Section -->
         <section id="pricing" class="py-16 sm:py-20 px-4">
             <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-6">اختر الباقة التي تناسبك</h2>
+                <h2 class="text-3xl font-black text-center mb-6">اختر الباقة التي تناسبك</h2>
+                <p class="text-center text-gray-200 mb-12 max-w-2xl mx-auto">نقدم مجموعة من الباقات المصممة خصيصًا لتلبية احتياجاتك، مع خصم خاص عند الاشتراك في الباقة الكاملة</p>
                 
                 <!-- Pricing Toggle -->
                 <div class="flex justify-center mb-12">
@@ -168,10 +307,10 @@
                     
                     <!-- Basic Package (Left) -->
                     <div class="w-full max-w-sm order-2 lg:order-1">
-                        <div class="card-light rounded-2xl p-6 sm:p-8 shadow-lg h-full flex flex-col relative">
+                        <div class="card-light pricing-card rounded-2xl p-8 shadow-lg h-full flex flex-col relative">
                             <div class="text-center mb-6">
                                 <span class="bg-gray-200 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">الخيار الاقتصادي</span>
-                                <h3 class="text-2xl font-bold mt-4">الباقة الأساسية</h3>
+                                <h3 class="text-2xl font-black mt-4">الباقة الأساسية</h3>
                                 <div class="price-container my-4 min-h-[80px] flex flex-col justify-center items-center" data-monthly="9" data-full="75" data-old-full="81">
                                     <p class="text-2xl font-bold text-gray-400 line-through old-price hidden"></p>
                                     <div>
@@ -189,7 +328,7 @@
                         </div>
                     </div>
 
-                    <!-- Gold Package (Center - Highlighted) -->
+                    <!-- Gold Package (Center - Highlighted) - UPDATED BLOCK -->
                     <div class="w-full max-w-md order-1 lg:order-2 transform lg:scale-105 z-10">
                         <div class="card-dark rounded-2xl p-6 sm:p-8 shadow-2xl border-4 gold-border relative flex flex-col h-full">
                             <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold flex items-center gap-2">
@@ -221,10 +360,10 @@
 
                     <!-- Medium Package (Right) -->
                     <div class="w-full max-w-sm order-3 lg:order-3">
-                        <div class="card-medium rounded-2xl p-6 sm:p-8 shadow-lg h-full flex flex-col relative">
+                        <div class="card-medium pricing-card rounded-2xl p-8 shadow-lg h-full flex flex-col relative">
                             <div class="text-center mb-6">
                                 <span class="bg-cyan-200 text-cyan-800 text-sm font-semibold px-3 py-1 rounded-full">أفضل قيمة ⭐</span>
-                                <h3 class="text-2xl font-bold mt-4">الباقة المتوسطة</h3>
+                                <h3 class="text-2xl font-black mt-4">الباقة المتوسطة</h3>
                                 <div class="price-container my-4 min-h-[80px] flex flex-col justify-center items-center" data-monthly="17" data-full="125" data-old-full="153">
                                     <p class="text-2xl font-bold text-gray-300 line-through old-price hidden"></p>
                                     <div>
@@ -250,12 +389,12 @@
         <!-- Individual Services Section -->
         <section id="individual-services" class="bg-gray-900/20 py-16 sm:py-20 px-4">
             <div class="container mx-auto max-w-4xl">
-                <h2 class="text-3xl font-bold text-center mb-10">قائمة أسعار الخدمات الفردية</h2>
-                <div class="bg-gray-900/30 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-3xl font-black text-center mb-10">قائمة أسعار الخدمات الفردية</h2>
+                <div class="bg-gray-900/30 rounded-2xl p-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                         <!-- Category 1 -->
                         <div class="flex flex-col">
-                            <h3 class="text-xl font-bold gold-accent mb-4 border-b border-yellow-400/20 pb-2">المهام الأسبوعية</h3>
+                            <h3 class="text-xl font-black gold-accent mb-4 border-b border-yellow-400/20 pb-2">المهام الأسبوعية</h3>
                             <ul class="space-y-3 text-lg flex-grow">
                                 <li class="flex justify-between"><span>مهمة المنتدى النقاشي</span> <span class="font-bold">2 دينار</span></li>
                                 <li class="flex justify-between"><span>خطة درس</span> <span class="font-bold">3 دنانير</span></li>
@@ -265,7 +404,7 @@
                         </div>
                         <!-- Category 2 -->
                         <div class="flex flex-col">
-                            <h3 class="text-xl font-bold gold-accent mb-4 border-b border-yellow-400/20 pb-2">الأبحاث والمقالات</h3>
+                            <h3 class="text-xl font-black gold-accent mb-4 border-b border-yellow-400/20 pb-2">الأبحاث والمقالات</h3>
                             <ul class="space-y-3 text-lg flex-grow">
                                 <li class="flex justify-between items-start">
                                     <span class="flex-1">المقالات (تأملية، بنائية، ختامية)<br><small class="text-gray-400 text-sm">مع ضمان التوثيق ونسبة التشابه والتعديل</small></span> 
@@ -277,7 +416,7 @@
                         </div>
                         <!-- Category 3 -->
                         <div class="flex flex-col">
-                            <h3 class="text-xl font-bold gold-accent mb-4 border-b border-yellow-400/20 pb-2">أدوات التقييم والتقارير</h3>
+                            <h3 class="text-xl font-black gold-accent mb-4 border-b border-yellow-400/20 pb-2">أدوات التقييم والتقارير</h3>
                             <ul class="space-y-3 text-lg flex-grow">
                                  <li class="flex justify-between items-start">
                                     <span class="flex-1">أداة التطور المهني البنائية + تقرير الجلسة الإرشادية</span> 
@@ -291,7 +430,7 @@
                         </div>
                         <!-- Category 4 -->
                         <div class="flex flex-col">
-                             <h3 class="text-xl font-bold gold-accent mb-4 border-b border-yellow-400/20 pb-2">خدمات إضافية</h3>
+                             <h3 class="text-xl font-black gold-accent mb-4 border-b border-yellow-400/20 pb-2">خدمات إضافية</h3>
                              <ul class="space-y-3 text-lg flex-grow">
                                 <li class="flex justify-between"><span>تجهيز ملف الإنجاز الإلكتروني</span> <span class="font-bold">10 دنانير</span></li>
                                 <li class="flex justify-between"><span>تدقيق، تنسيق، وإعادة صياغة</span> <span class="font-bold">5 دنانير</span></li>
@@ -312,24 +451,24 @@
         <!-- Why Us Section -->
         <section class="py-16 sm:py-20 px-4">
             <div class="container mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-10">لماذا تختار خدماتنا؟</h2>
+                <h2 class="text-3xl font-black mb-12">لماذا تختار خدماتنا؟</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="p-6">
+                    <div class="p-6 feature-item">
                         <div class="text-5xl mb-4 gold-accent">⏱️</div>
                         <h3 class="text-xl font-bold mb-2">توفير الوقت والجهد</h3>
                         <p class="text-gray-300">ركّز على تدريسك وعائلتك، واترك لنا عبء إنجاز المهام.</p>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 feature-item">
                         <div class="text-5xl mb-4 gold-accent">✍️</div>
                         <h3 class="text-xl font-bold mb-2">جودة وصياغة أكاديمية</h3>
                         <p class="text-gray-300">نضمن لك محتوى احترافيًا ومُدقّقًا لغويًا يتوافق مع المعايير.</p>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 feature-item">
                         <div class="text-5xl mb-4 gold-accent">🗓️</div>
                         <h3 class="text-xl font-bold mb-2">التزام بالمواعيد</h3>
                         <p class="text-gray-300">تسليم سريع وموثوق ضمن المدة المحددة لكل باقة.</p>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 feature-item">
                         <div class="text-5xl mb-4 gold-accent">💬</div>
                         <h3 class="text-xl font-bold mb-2">دعم فني سريع</h3>
                         <p class="text-gray-300">نحن هنا للإجابة على استفساراتك وتقديم المساعدة الفورية.</p>
@@ -341,21 +480,21 @@
         <!-- FAQ Section -->
         <section class="py-16 sm:py-20 px-4">
             <div class="container mx-auto max-w-3xl">
-                <h2 class="text-3xl font-bold text-center mb-10">أسئلة شائعة</h2>
+                <h2 class="text-3xl font-black text-center mb-10">أسئلة شائعة</h2>
                 <div class="space-y-4">
-                    <details class="bg-gray-900/20 p-6 rounded-lg cursor-pointer">
+                    <details class="p-6 rounded-lg cursor-pointer">
                         <summary class="font-bold text-lg">كيف يتم تسليم المهام المنجزة؟</summary>
                         <p class="mt-4 text-gray-300">يتم إرسال المهام المكتملة إليك عبر البريد الإلكتروني أو الواتساب بصيغة ملف Word أو PDF جاهز للرفع مباشرة على منصة الدبلوم.</p>
                     </details>
-                    <details class="bg-gray-900/20 p-6 rounded-lg cursor-pointer">
+                    <details class="p-6 rounded-lg cursor-pointer">
                         <summary class="font-bold text-lg">هل يمكنني طلب تعديلات على المهمة؟</summary>
                         <p class="mt-4 text-gray-300">نعم، نسمح بطلب تعديلات معقولة خلال 24 ساعة من استلام المهمة لضمان رضاك التام. هدفنا هو أن يكون العمل مطابقًا لتوقعاتك.</p>
                     </details>
-                    <details class="bg-gray-900/20 p-6 rounded-lg cursor-pointer">
+                    <details class="p-6 rounded-lg cursor-pointer">
                         <summary class="font-bold text-lg">ما هي طرق الدفع المتاحة؟</summary>
                         <p class="mt-4 text-gray-300">نقبل الدفع حاليًا عبر محفظة <span class="font-bold gold-accent">أورنج موني</span>. يمكنك التحويل بسهولة إلى رقم محفظتنا من أي محفظة إلكترونية أخرى (مثل زين كاش، UWallet، دينارك) أو عبر خدمة إي فواتيركم. سيتم تزويدك بالتفاصيل عند تأكيد الطلب.</p>
                     </details>
-                    <details class="bg-gray-900/20 p-6 rounded-lg cursor-pointer">
+                    <details class="p-6 rounded-lg cursor-pointer">
                         <summary class="font-bold text-lg">ماذا عن خصوصية بيانات حسابي؟</summary>
                         <p class="mt-4 text-gray-300">نتعامل مع جميع بياناتك بسرية تامة. بالنسبة للباقة الذهبية التي تتضمن التسليم نيابة عنك، يتم استخدام بيانات الدخول للمنصة لغرض التسليم فقط ولا يتم مشاركتها أو حفظها بعد انتهاء الاشتراك.</p>
                     </details>
@@ -366,24 +505,24 @@
         <!-- Contact Section -->
         <section id="contact" class="bg-gray-900/20 py-16 sm:py-20 px-4">
             <div class="container mx-auto max-w-xl text-center">
-                <h2 class="text-3xl font-bold mb-4">هل أنت جاهز للبدء؟</h2>
+                <h2 class="text-3xl font-black mb-4">هل أنت جاهز للبدء؟</h2>
                 <p class="text-xl text-gray-300 mb-6">
                     أسهل طريقة للبدء هي عبر التواصل المباشر معنا.
                 </p>
-                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1." target="_blank" class="inline-block gold-button font-bold py-4 px-10 rounded-lg text-xl mb-6 transition-transform hover:scale-105">
+                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1." target="_blank" class="inline-block gold-button font-bold py-4 px-10 rounded-full text-xl mb-6 transition-transform hover:scale-105">
                     اطلب الآن عبر واتساب
                 </a>
                 <p class="text-lg text-gray-300 mb-8">
                     أو <strong class="gold-accent">املأ بياناتك أولاً</strong> بالضغط على الزر أدناه:
                 </p>
-                <button id="show-form-btn" class="secondary-button font-bold py-3 px-8 rounded-lg text-lg">
+                <button id="show-form-btn" class="secondary-button font-bold py-3 px-8 rounded-full text-lg">
                     املأ بياناتك
                 </button>
                 
                 <form id="contactForm" class="text-right mt-8 hidden">
                     <!-- Progress Bar -->
                     <div class="w-full bg-gray-700 rounded-full h-2.5 mb-6">
-                        <div id="progress-bar" class="bg-yellow-400 h-2.5 rounded-full progress-bar-fill" style="width: 0%"></div>
+                        <div id="progress-bar" class="h-2.5 rounded-full progress-bar-fill" style="width: 0%"></div>
                     </div>
 
                     <!-- Form Steps -->
@@ -432,15 +571,16 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-center py-8 px-4">
-        <div class="container mx-auto text-gray-400 text-sm">
-            <p>جميع الحقوق محفوظة © 2024 | دبلومك علينا</p>
-            <div class="mt-2">
-                <a href="#" class="hover:text-white">سياسة الخصوصية</a>
+    <footer class="py-10 px-4">
+        <div class="container mx-auto text-gray-400 text-sm text-center">
+            <p class="text-lg font-bold gold-accent mb-2">دبلومك علينا</p>
+            <p>جميع الحقوق محفوظة © 2024</p>
+            <div class="mt-4">
+                <a href="#" class="hover:text-white transition-colors">سياسة الخصوصية</a>
                 <span class="mx-2">|</span>
-                <button id="disclaimer-btn" class="hover:text-white underline">إخلاء مسؤولية</button>
+                <button id="disclaimer-btn" class="hover:text-white underline transition-colors">إخلاء مسؤولية</button>
             </div>
-            <p class="mt-2 text-xs">
+            <p class="mt-4 text-xs max-w-2xl mx-auto">
                 خدماتنا دعمية وإرشادية (تنظيم، صياغة، مراجعة، تدقيق). يلتزم الطالب بسياسات مؤسسته بشأن النزاهة الأكاديمية.
             </p>
         </div>
@@ -448,8 +588,8 @@
     
     <!-- Disclaimer Modal -->
     <div id="disclaimer-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 modal opacity-0 pointer-events-none">
-        <div class="modal-content bg-gray-800 rounded-2xl shadow-xl w-full max-w-2xl p-8 text-right transform scale-95">
-            <h3 class="text-2xl font-bold gold-accent mb-4">إخلاء المسؤولية (Disclaimer)</h3>
+        <div class="modal-content w-full max-w-2xl p-8 text-right transform scale-95">
+            <h3 class="text-2xl font-black gold-accent mb-4">إخلاء المسؤولية (Disclaimer)</h3>
             <div class="text-gray-300 space-y-4">
                 <p>خدمة 'دبلومك علينا' تقدم المساعدة في إعداد وصياغة المهام الأكاديمية لتكون بمثابة <strong class="font-bold text-yellow-300">نموذج استرشادي ومرجع أساسي</strong>. الهدف من خدماتنا هو توجيه العميل ومساعدته على فهم المتطلبات الأكاديمية.</p>
                 <p>تقع على العميل <strong class="font-bold text-yellow-300">المسؤولية الكاملة</strong> لاستخدام المحتوى المُسلّم كنقطة انطلاق لعمله الخاص، مع ضرورة إجراء التعديلات اللازمة ليتوافق مع أسلوبه الشخصي ومتطلبات النزاهة الأكاديمية للمؤسسة التعليمية التابع لها.</p>
@@ -460,7 +600,7 @@
     </div>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/962779283635" target="_blank" class="whatsapp-fab bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg" aria-label="تواصل معنا عبر واتساب">
+    <a href="https://wa.me/962779283635" target="_blank" class="whatsapp-fab text-white rounded-full flex items-center justify-center" aria-label="تواصل معنا عبر واتساب">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.846 6.097l-1.117 4.082 4.162-1.085zM15.072 13.125c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056c-.225-.113-.947-.349-1.804-1.113-.667-.595-1.117-1.329-1.248-1.554s-.012-.354.1-.466c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.375-.504-.382-.131-.008-.281-.01-.431-.01s-.375.056-.58.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.368 1.279.473.537.171 1.026.148 1.407.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.066s-.224-.15-.48-.262z"/>
         </svg>
