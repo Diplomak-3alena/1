@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>باقات دعم ومساندة مهام الدبلوم المهني | دبلومك علينا</title>
-    <meta name="description" content="نقدم باقات شهرية وباقة الدبلوم الكاملة (9 أشهر) لتوفير ملفات مساندة، مراجعة وصياغة احترافية لمهام الدبلوم المهني، مع الحفاظ على النزاهة الأكاديمية.">
+    <title>باقات إنجاز مهام الدبلوم المهني للمعلمين | دبلومك علينا</title>
+    <meta name="description" content="نقدم باقات شهرية لإنجاز مهام الدبلوم المهني للمعلمين. اختر الباقة التي تناسبك مع دبلومك علينا.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' font-family='Tajawal' fill='%23FFD700'%3Eد%3C/text%3E%3C/svg%3E">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,6 +31,10 @@
             --light: #F5F5F5;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Tajawal', sans-serif;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
@@ -153,40 +160,6 @@
             transform: scale(1.1) rotate(5deg);
         }
         
-        /* Toggle Switch Styles */
-        .toggle-container {
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 9999px;
-            padding: 4px;
-            display: inline-flex;
-            position: relative;
-        }
-        
-        .toggle-btn {
-            padding: 8px 24px;
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            color: #a0aec0;
-            font-weight: 500;
-            white-space: nowrap;
-            z-index: 10;
-        }
-        
-        .toggle-btn.active {
-            color: #1C1C1C;
-        }
-        
-        .toggle-slider {
-            position: absolute;
-            top: 4px;
-            left: 0;
-            height: calc(100% - 8px);
-            background-color: var(--accent);
-            border-radius: 9999px;
-            transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-        }
-        
         /* Modal Styles */
         .modal {
             transition: opacity 0.3s ease;
@@ -214,7 +187,7 @@
         }
         
         .progress-bar-fill {
-            transition: width 0.3s ease-in-out;
+            transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             background: linear-gradient(to right, var(--accent), var(--accent-dark));
         }
         
@@ -253,6 +226,53 @@
         details[open] summary::after {
             transform: rotate(45deg);
         }
+
+        /* Glowing Box for Discount */
+        .glowing-box {
+            animation: glowing-pulse 2.5s infinite ease-in-out;
+        }
+
+        @keyframes glowing-pulse {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.5), 0 0 15px rgba(255, 215, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.5), 0 0 15px rgba(255, 215, 0, 0.5);
+            }
+        }
+        
+        /* Scroll Animation Styles */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Back to Top Button */
+        #back-to-top-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 50;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform: translateY(10px);
+        }
+        #back-to-top-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
         
         /* Footer */
         footer {
@@ -266,7 +286,7 @@
     <!-- Slogan Header -->
     <div class="slogan-header py-4">
         <h1 class="text-4xl md:text-5xl font-black text-center gold-accent tracking-wider">دبلومك علينا</h1>
-        <p class="text-center text-yellow-200 mt-2 text-sm">خدمات أكاديمية احترافية لدعم وإنجاز مهام الدبلوم بسهولة</p>
+        <p class="text-center text-yellow-200 mt-2 text-sm">خدمات أكاديمية احترافية لإنجاز مهام الدبلوم المهني</p>
     </div>
 
     <!-- Scarcity Banner -->
@@ -278,31 +298,22 @@
     <header class="hero-gradient py-16 sm:py-24 px-4 text-center relative">
         <div class="container mx-auto max-w-4xl relative z-10">
             <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight">وداعًا لضغط مهام الدبلوم…</h2>
-            <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gold-accent leading-relaxed">خليك مرتاح… وبنوفر لك ملفات جاهزة.<br>ومساندة بتساعدك تُنجز مهامك بسهولة.</h3>
-            <p class="text-lg sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-gray-100">اختر باقتك الشهرية، أو باقة الدبلوم الكاملة للتوفير والراحة القصوى.</p>
+            <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gold-accent">خليك مرتاح وإحنا مننجز عنك!</h3>
+            <p class="text-lg sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-gray-100">اختر الباقة الشهرية التي تناسب احتياجاتك لنوفر عليك الوقت والجهد.</p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
                 <a href="#pricing" class="gold-button font-bold py-4 px-10 rounded-full text-lg w-full sm:w-auto">اشترك الآن</a>
-                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1." target="_blank" class="secondary-button font-bold py-4 px-10 rounded-full text-lg w-full sm:w-auto">استفسر عبر واتساب</a>
+                <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%AE%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1." target="_blank" class="secondary-button font-bold py-4 px-10 rounded-full text-lg w-full sm:w-auto">استفسر عبر واتساب</a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Pricing Section -->
-        <section id="pricing" class="py-16 sm:py-20 px-4">
+        <section id="pricing" class="py-16 sm:py-20 px-4 reveal-on-scroll">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-black text-center mb-6">اختر الباقة التي تناسبك</h2>
-                <p class="text-center text-gray-200 mb-12 max-w-2xl mx-auto">نقدم مجموعة من الباقات المصممة خصيصًا لتلبية احتياجاتك، مع خصم خاص عند الاشتراك في الباقة الكاملة</p>
+                <p class="text-center text-gray-200 mb-12 max-w-2xl mx-auto">نقدم مجموعة من الباقات الشهرية المصممة خصصًا لتلبية احتياجاتك المختلفة.</p>
                 
-                <!-- Pricing Toggle -->
-                <div class="flex justify-center mb-12">
-                    <div class="toggle-container" id="pricing-toggle">
-                        <div class="toggle-slider"></div>
-                        <button class="toggle-btn active" data-period="monthly">اشتراك شهري</button>
-                        <button class="toggle-btn" data-period="full">باقة الدبلوم كاملة (9 أشهر)</button>
-                    </div>
-                </div>
-
                 <div class="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-8">
                     
                     <!-- Basic Package (Left) -->
@@ -311,24 +322,23 @@
                             <div class="text-center mb-6">
                                 <span class="bg-gray-200 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">الخيار الاقتصادي</span>
                                 <h3 class="text-2xl font-black mt-4">الباقة الأساسية</h3>
-                                <div class="price-container my-4 min-h-[80px] flex flex-col justify-center items-center" data-monthly="9" data-full="75" data-old-full="81">
-                                    <p class="text-2xl font-bold text-gray-400 line-through old-price hidden"></p>
+                                <div class="price-container my-4 min-h-[80px] flex flex-col justify-center items-center">
                                     <div>
-                                        <span class="text-4xl font-extrabold price">9</span>
-                                        <span class="text-lg font-medium billing-period">دنانير/شهر</span>
+                                        <span class="text-4xl font-extrabold price">13</span>
+                                        <span class="text-lg font-medium billing-period">دينار/شهر</span>
                                     </div>
                                 </div>
                             </div>
                             <ul class="space-y-4 text-gray-700 mb-8 flex-grow">
-                                <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✓</span> <span><strong>المساعدة في 5 مهام شهريا</strong></span></li>
+                                <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✓</span> <span><strong>5 مهام</strong> شهريًا</span></li>
                                 <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✓</span> <span>زمن التسليم: 72–96 ساعة</span></li>
                                 <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✓</span> <span>مثالية لتجربة سريعة أو مهام محدودة</span></li>
                             </ul>
-                            <a href="#contact" class="cta-button w-full text-center bg-gray-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transition-colors mt-auto" data-monthly-text="جرّب الأساسية" data-full-text="احجز مقعدك الآن">جرّب الأساسية</a>
+                            <a href="#contact" class="w-full text-center bg-gray-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transition-colors mt-auto">جرّب الأساسية</a>
                         </div>
                     </div>
 
-                    <!-- Gold Package (Center - Highlighted) - UPDATED BLOCK -->
+                    <!-- Gold Package (Center - Highlighted) -->
                     <div class="w-full max-w-md order-1 lg:order-2 transform lg:scale-105 z-10">
                         <div class="card-dark rounded-2xl p-6 sm:p-8 shadow-2xl border-4 gold-border relative flex flex-col h-full">
                             <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold flex items-center gap-2">
@@ -336,25 +346,23 @@
                             </div>
                             <div class="text-center mb-6">
                                 <h3 class="text-3xl font-bold mt-4 gold-accent">الباقة الذهبية</h3>
-                                <div class="price-container my-4 min-h-[88px] flex flex-col justify-center items-center" data-monthly="25" data-full="199" data-old-full="225">
-                                    <p class="text-2xl font-bold text-gray-500 line-through old-price hidden"></p>
+                                <div class="price-container my-4 min-h-[88px] flex flex-col justify-center items-center">
                                     <div>
-                                        <span class="text-5xl font-extrabold price">25</span>
+                                        <span class="text-5xl font-extrabold price">28</span>
                                         <span class="text-xl font-medium billing-period">دينار/شهر</span>
                                     </div>
                                 </div>
                             </div>
                             <ul class="space-y-4 mb-8 flex-grow">
-                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>المساعدة في جميع المهام الأسبوعية والشهرية</strong></span></li>
-                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>المساعدة في المقالات (تأملية، بنائية، ختامية) مع فحص نسبة الاستلال وتقديم تقرير مفصل</span></li>
-                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>المساعدة في البحث الاستقصائي كاملًا</strong> + العرض التقديمي</span></li>
-                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>المساعدة في أداة التطور المهني (البنائية والختامية)</span></li>
-                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>المساعدة في تقرير الجلسة الإرشادية (البنائية والختامية)</span></li>
-                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>المساعدة في تجهيز <strong>ملف الإنجاز الإلكتروني</strong></span></li>
-                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>المساعدة في تجهيز ملفاتك لتكون جاهزة للرفع على المنصة</strong></span></li>
+                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>كل المهام الشهرية</strong></span></li>
+                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>جميع المقالات التأملية والبنائية والختامية مع ضمان نسبة الاستلال</span></li>
+                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>البحث الاستقصائي كاملًا</strong> + العرض التقديمي</span></li>
+                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>أداة التطور المهني (البنائية والختامية)</span></li>
+                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>تقرير الجلسة الإرشادية (البنائية والختامية)</span></li>
+                                <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span>تجهيز <strong>ملف الإنجاز الإلكتروني</strong></span></li>
                                 <li class="flex items-start"><span class="gold-accent mr-2 mt-1">✓</span> <span><strong>أولوية التسليم: 24–48 ساعة</strong></span></li>
                             </ul>
-                            <a href="#contact" class="cta-button w-full text-center gold-button font-bold py-4 px-6 rounded-lg text-lg mt-auto" data-monthly-text="اختر الراحة الكاملة" data-full-text="استثمر في راحتك">اختر الراحة الكاملة</a>
+                            <a href="#contact" class="w-full text-center gold-button font-bold py-4 px-6 rounded-lg text-lg mt-auto">اختر الراحة الكاملة</a>
                         </div>
                     </div>
 
@@ -364,104 +372,76 @@
                             <div class="text-center mb-6">
                                 <span class="bg-cyan-200 text-cyan-800 text-sm font-semibold px-3 py-1 rounded-full">أفضل قيمة ⭐</span>
                                 <h3 class="text-2xl font-black mt-4">الباقة المتوسطة</h3>
-                                <div class="price-container my-4 min-h-[80px] flex flex-col justify-center items-center" data-monthly="17" data-full="125" data-old-full="153">
-                                    <p class="text-2xl font-bold text-gray-300 line-through old-price hidden"></p>
+                                <div class="price-container my-4 min-h-[80px] flex flex-col justify-center items-center">
                                     <div>
-                                        <span class="text-4xl font-extrabold price">17</span>
+                                        <span class="text-4xl font-extrabold price">20</span>
                                         <span class="text-lg font-medium billing-period">دينار/شهر</span>
                                     </div>
                                 </div>
                             </div>
                             <ul class="space-y-4 mb-8 flex-grow">
-                                <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span><strong>المساعدة في جميع المهام الأسبوعية والشهرية</strong></span></li>
-                                <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>المساعدة في أداة تقييم التطور المهني البنائية</span></li>
-                                <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>المساعدة في تقرير الجلسة الإرشادية البنائية</span></li>
+                                <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>يشمل <strong>جميع المهام الشهرية</strong></span></li>
+                                <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>أداة تقييم التطور المهني البنائية</span></li>
+                                <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>تقرير الجلسة الإرشادية البنائية</span></li>
                                 <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>تحسين الصياغة والتدقيق اللغوي</span></li>
                                 <li class="flex items-start"><span class="text-cyan-200 mr-2 mt-1">✓</span> <span>زمن التسليم: 48–72 ساعة</span></li>
                             </ul>
-                            <a href="#contact" class="cta-button w-full text-center bg-white text-teal-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors mt-auto" data-monthly-text="اختر أفضل قيمة" data-full-text="ابدأ رحلة التوفير">اختر أفضل قيمة</a>
+                            <a href="#contact" class="w-full text-center bg-white text-teal-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors mt-auto">اختر أفضل قيمة</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Groups Discount Note -->
+                <div class="mt-12 max-w-3xl mx-auto text-center">
+                    <div class="glowing-box inline-block bg-gradient-to-b from-yellow-400 to-yellow-500 rounded-full border-2 border-yellow-600 shadow-lg px-8 py-4 transform hover:scale-105 transition-transform duration-300">
+                        <p class="text-2xl font-black text-gray-800 flex items-center justify-center">
+                            <span class="text-3xl mr-3">🎉</span>
+                            <span class="tracking-wide">عرض خاص للمجموعات</span>
+                            <span class="text-3xl ml-3">🎉</span>
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Individual Services Section -->
-        <section id="individual-services" class="bg-gray-900/20 py-16 sm:py-20 px-4">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-3xl font-black text-center mb-10">قائمة أسعار الخدمات الفردية</h2>
-                <div class="bg-gray-900/30 rounded-2xl p-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                        <!-- Category 1 -->
-                        <div class="flex flex-col">
-                            <h3 class="text-xl font-black gold-accent mb-4 border-b border-yellow-400/20 pb-2">المهام الأسبوعية</h3>
-                            <ul class="space-y-3 text-lg flex-grow">
-                                <li class="flex justify-between"><span>المساعدة في مهمة المنتدى النقاشي</span> <span class="font-bold">2 دينار</span></li>
-                                <li class="flex justify-between"><span>المساعدة في خطة درس</span> <span class="font-bold">3 دنانير</span></li>
-                                <li class="flex justify-between"><span>المساعدة في تحليل محتوى الدرس</span> <span class="font-bold">3 دنانير</span></li>
-                                <li class="flex justify-between"><span>المساعدة في دراسة الحالة</span> <span class="font-bold">2.5 دينار</span></li>
-                            </ul>
-                        </div>
-                        <!-- Category 2 -->
-                        <div class="flex flex-col">
-                            <h3 class="text-xl font-black gold-accent mb-4 border-b border-yellow-400/20 pb-2">الأبحاث والمقالات</h3>
-                            <ul class="space-y-3 text-lg flex-grow">
-                                <li class="flex justify-between items-start">
-                                    <span class="flex-1">المساعدة في المقالات (تأملية، بنائية، ختامية)<br><small class="text-gray-400 text-sm">مع فحص التوثيق ونسبة التشابه وتقديم تقرير</small></span> 
-                                    <span class="font-bold">12 دينار</span>
-                                </li>
-                                <li class="flex justify-between"><span>المساعدة في البحث الاستقصائي</span> <span class="font-bold">50 دينار</span></li>
-                                <li class="flex justify-between"><span>المساعدة في عرض تقديمي للبحث</span> <span class="font-bold">10 دنانير</span></li>
-                            </ul>
-                        </div>
-                        <!-- Category 3 -->
-                        <div class="flex flex-col">
-                            <h3 class="text-xl font-black gold-accent mb-4 border-b border-yellow-400/20 pb-2">أدوات التقييم والتقارير</h3>
-                            <ul class="space-y-3 text-lg flex-grow">
-                                 <li class="flex justify-between items-start">
-                                    <span class="flex-1">المساعدة في أداة التطور المهني البنائية + تقرير الجلسة الإرشادية</span> 
-                                    <span class="font-bold">15 دينار</span>
-                                </li>
-                                 <li class="flex justify-between items-start">
-                                    <span class="flex-1">المساعدة في أداة التطور المهني الختامية + تقرير الجلسة الإرشادية</span> 
-                                    <span class="font-bold">15 دينار</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Category 4 -->
-                        <div class="flex flex-col">
-                             <h3 class="text-xl font-black gold-accent mb-4 border-b border-yellow-400/20 pb-2">خدمات إضافية</h3>
-                             <ul class="space-y-3 text-lg flex-grow">
-                                <li class="flex justify-between"><span>المساعدة في تجهيز ملف الإنجاز الإلكتروني</span> <span class="font-bold">10 دنانير</span></li>
-                                <li class="flex justify-between"><span>تدقيق، تنسيق، وإعادة صياغة</span> <span class="font-bold">5 دنانير</span></li>
-                                <li class="flex justify-between items-start">
-                                    <span class="flex-1">المساعدة في تعديل الأبحاث<br><small class="text-gray-400 text-sm">(عدا البحث الاستقصائي)</small></span> 
-                                    <span class="font-bold">7 دنانير</span>
-                                </li>
-                             </ul>
-                        </div>
+        <!-- NEW Individual Services Section -->
+        <section id="individual-services" class="bg-gray-900/20 py-16 sm:py-20 px-4 reveal-on-scroll">
+            <div class="container mx-auto max-w-3xl text-center">
+                <h2 class="text-3xl font-black text-center mb-10">شراء المهام بشكل فردي</h2>
+                <div class="bg-gray-900/30 rounded-2xl p-8 border border-gray-700 shadow-lg">
+                    <h3 class="text-2xl font-bold gold-accent mb-4">هل تحتاج مهمة معينة فقط؟</h3>
+                    <p class="text-lg text-gray-300 mb-6">
+                        نوفر خيار شراء المهام الفردية بدون الحاجة للاشتراك في باقة شهرية.
+                    </p>
+                    <div class="text-right space-y-4 text-lg">
+                        <p><strong class="gold-accent">المهام الأسبوعية:</strong> تتراوح أسعارها بين <strong class="text-white">3 و5 دنانير</strong> للمهمة، ويعتمد السعر على حجم المهمة، متطلبات التنسيق، ووقت التسليم.</p>
+                        <p><strong class="gold-accent">الأبحاث والمقالات:</strong> تتراوح أسعارها (بما فيها العروض التقديمية) بين <strong class="text-white">10 و60 دينارًا</strong>، بحسب نوع المهمة (مقال/بحث/عرض)، عدد الصفحات، ودرجة الاستعجال.</p>
                     </div>
-                    <div class="text-center mt-8 pt-4 border-t border-gray-700">
-                        <p class="text-gray-300">ملاحظة: سعر المساعدة في المهام الأسبوعية الأخرى التي لم تذكر يتراوح بين <span class="font-bold gold-accent">2.5</span> إلى <span class="font-bold gold-accent">5</span> دنانير للمهمة.</p>
+                    <div class="mt-8">
+                         <p class="text-xl text-gray-200 mb-4">للتفاصيل الدقيقة وعرض سعر مناسب لحالتك، تواصل معنا مباشرة.</p>
+                         <a href="https://wa.me/962779283635?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B3%D8%B9%D8%B1%20%D9%85%D9%87%D9%85%D8%A9%20%D9%81%D8%B1%D8%AF%D9%8A%D8%A9." target="_blank" class="inline-block gold-button font-bold py-3 px-8 rounded-full text-lg transition-transform hover:scale-105">
+                            استفسر عن سعر مهمة
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Why Us Section -->
-        <section class="py-16 sm:py-20 px-4">
+        <section class="py-16 sm:py-20 px-4 reveal-on-scroll">
             <div class="container mx-auto text-center">
                 <h2 class="text-3xl font-black mb-12">لماذا تختار خدماتنا؟</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="p-6 feature-item">
                         <div class="text-5xl mb-4 gold-accent">⏱️</div>
                         <h3 class="text-xl font-bold mb-2">توفير الوقت والجهد</h3>
-                        <p class="text-gray-300">ركّز على تدريسك وعائلتك، ودعنا نساعدك بملفات جاهزة ومُهيأة توفر عليك الوقت والجهد.</p>
+                        <p class="text-gray-300">ركّز على تدريسك وعائلتك، واترك لنا عبء إنجاز المهام.</p>
                     </div>
                     <div class="p-6 feature-item">
                         <div class="text-5xl mb-4 gold-accent">✍️</div>
                         <h3 class="text-xl font-bold mb-2">جودة وصياغة أكاديمية</h3>
-                        <p class="text-gray-300">نقدم المساعدة في إعداد محتوى احترافي ومدقق لغويًا يتوافق مع المعايير.</p>
+                        <p class="text-gray-300">نضمن لك محتوى احترافيًا ومُدقّقًا لغويًا يتوافق مع المعايير.</p>
                     </div>
                     <div class="p-6 feature-item">
                         <div class="text-5xl mb-4 gold-accent">🗓️</div>
@@ -478,13 +458,13 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="py-16 sm:py-20 px-4">
+        <section class="py-16 sm:py-20 px-4 reveal-on-scroll">
             <div class="container mx-auto max-w-3xl">
                 <h2 class="text-3xl font-black text-center mb-10">أسئلة شائعة</h2>
                 <div class="space-y-4">
                     <details class="p-6 rounded-lg cursor-pointer">
-                        <summary class="font-bold text-lg">كيف يتم تسليم الملفات المساندة؟</summary>
-                        <p class="mt-4 text-gray-300">يتم إرسال الملفات إليك عبر البريد الإلكتروني أو الواتساب بصيغة ملف Word أو PDF منسقة وجاهزة للتعديل والرفع حسب احتياجك.</p>
+                        <summary class="font-bold text-lg">كيف يتم تسليم المهام المنجزة؟</summary>
+                        <p class="mt-4 text-gray-300">يتم إرسال المهام المكتملة إليك عبر البريد الإلكتروني أو الواتساب بصيغة ملف Word أو PDF جاهز للرفع مباشرة على منصة الدبلوم.</p>
                     </details>
                     <details class="p-6 rounded-lg cursor-pointer">
                         <summary class="font-bold text-lg">هل يمكنني طلب تعديلات على المهمة؟</summary>
@@ -495,15 +475,15 @@
                         <p class="mt-4 text-gray-300">نقبل الدفع حاليًا عبر محفظة <span class="font-bold gold-accent">أورنج موني</span>. يمكنك التحويل بسهولة إلى رقم محفظتنا من أي محفظة إلكترونية أخرى (مثل زين كاش، UWallet، دينارك) أو عبر خدمة إي فواتيركم. سيتم تزويدك بالتفاصيل عند تأكيد الطلب.</p>
                     </details>
                     <details class="p-6 rounded-lg cursor-pointer">
-                        <summary class="font-bold text-lg">ماذا عن خصوصية بياناتي؟</summary>
-                        <p class="mt-4 text-gray-300">نتعامل مع جميع بياناتك بسرية تامة. أي معلومات يتم مشاركتها تستخدم لغرض تجهيز الملفات فقط، ويتم حذفها بشكل آمن فور انتهاء مدة الاشتراك لضمان خصوصيتك الكاملة.</p>
+                        <summary class="font-bold text-lg">ماذا عن خصوصية بيانات حسابي؟</summary>
+                        <p class="mt-4 text-gray-300">نتعامل مع جميع بياناتك بسرية تامة. بالنسبة للباقة الذهبية التي تتضمن التسليم نيابة عنك، يتم استخدام بيانات الدخول للمنصة لغرض التسليم فقط ولا يتم مشاركتها أو حفظها بعد انتهاء الاشتراك.</p>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="bg-gray-900/20 py-16 sm:py-20 px-4">
+        <section id="contact" class="bg-gray-900/20 py-16 sm:py-20 px-4 reveal-on-scroll">
             <div class="container mx-auto max-w-xl text-center">
                 <h2 class="text-3xl font-black mb-4">هل أنت جاهز للبدء؟</h2>
                 <p class="text-xl text-gray-300 mb-6">
@@ -591,10 +571,9 @@
         <div class="modal-content w-full max-w-2xl p-8 text-right transform scale-95">
             <h3 class="text-2xl font-black gold-accent mb-4">إخلاء المسؤولية (Disclaimer)</h3>
             <div class="text-gray-300 space-y-4">
-                <p>خدمة 'دبلومك علينا' تقدم المساعدة في إعداد وصياغة المهام الأكاديمية لتكون بمثابة <strong class="font-bold text-yellow-300">نموذج استرشادي ومصدر إلهام</strong>. الهدف من خدماتنا هو توجيه العميل ومساعدته على فهم المتطلبات الأكاديمية.</p>
+                <p>خدمة 'دبلومك علينا' تقدم المساعدة في إعداد وصياغة المهام الأكاديمية لتكون بمثابة <strong class="font-bold text-yellow-300">نموذج استرشادي ومرجع أساسي</strong>. الهدف من خدماتنا هو توجيه العميل ومساعدته على فهم المتطلبات الأكاديمية.</p>
                 <p>تقع على العميل <strong class="font-bold text-yellow-300">المسؤولية الكاملة</strong> لاستخدام المحتوى المُسلّم كنقطة انطلاق لعمله الخاص، مع ضرورة إجراء التعديلات اللازمة ليتوافق مع أسلوبه الشخصي ومتطلبات النزاهة الأكاديمية للمؤسسة التعليمية التابع لها.</p>
-                <p>نحن لا نشجع على تقديم الأعمال كما هي، ويجب على العميل استخدامها كأداة للتعلم والتطوير. استخدامك لخدماتنا هو إقرار منك بفهم وموافقة على هذه الشروط.</p>
-                <p class="font-bold gold-accent mt-4">استخدام الملفات كما هي دون تعديل قد يخالف سياسات النزاهة الأكاديمية.</p>
+                <p>نحن لا نضمن الحصول على علامة معينة، واستخدامك لخدماتنا هو إقرار منك بفهم وموافقة على هذه الشروط.</p>
             </div>
             <button id="close-modal-btn" class="mt-6 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">إغلاق</button>
         </div>
@@ -606,60 +585,16 @@
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.846 6.097l-1.117 4.082 4.162-1.085zM15.072 13.125c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056c-.225-.113-.947-.349-1.804-1.113-.667-.595-1.117-1.329-1.248-1.554s-.012-.354.1-.466c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.375-.504-.382-.131-.008-.281-.01-.431-.01s-.375.056-.58.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.368 1.279.473.537.171 1.026.148 1.407.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.066s-.224-.15-.48-.262z"/>
         </svg>
     </a>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top-btn" class="bg-yellow-400 text-gray-900 rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-yellow-300 transition-colors" aria-label="العودة إلى الأعلى">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
 
     <script>
-        // --- Pricing Toggle Logic ---
-        const toggle = document.getElementById('pricing-toggle');
-        const slider = toggle.querySelector('.toggle-slider');
-        const buttons = toggle.querySelectorAll('.toggle-btn');
-        const priceContainers = document.querySelectorAll('.price-container');
-        const ctaButtons = document.querySelectorAll('.cta-button');
-
-        const updatePricing = (activeButton) => {
-            if (!activeButton) return;
-            const period = activeButton.dataset.period;
-            const isMonthly = period === 'monthly';
-            const buttonWidth = activeButton.offsetWidth;
-            const offset = activeButton.offsetLeft;
-            slider.style.width = `${buttonWidth}px`;
-            slider.style.transform = `translateX(${offset}px)`;
-            buttons.forEach(btn => btn.classList.remove('active'));
-            activeButton.classList.add('active');
-            priceContainers.forEach(container => {
-                const priceEl = container.querySelector('.price');
-                const periodEl = container.querySelector('.billing-period');
-                const oldPriceEl = container.querySelector('.old-price');
-                const monthlyPrice = container.dataset.monthly;
-                const fullPrice = container.dataset.full;
-                const oldFullPrice = container.dataset.oldFull;
-                if (isMonthly) {
-                    priceEl.textContent = monthlyPrice;
-                    if (monthlyPrice === '9') {
-                        periodEl.textContent = 'دنانير/شهر';
-                    } else {
-                        periodEl.textContent = 'دينار/شهر';
-                    }
-                    oldPriceEl.classList.add('hidden');
-                } else {
-                    priceEl.textContent = fullPrice;
-                    periodEl.textContent = 'لكامل الدبلوم';
-                    oldPriceEl.textContent = `${oldFullPrice} دينار`;
-                    oldPriceEl.classList.remove('hidden');
-                }
-            });
-            ctaButtons.forEach(button => {
-                if(isMonthly) {
-                    button.textContent = button.dataset.monthlyText;
-                } else {
-                    button.textContent = button.dataset.fullText;
-                }
-            });
-        };
-        buttons.forEach(button => button.addEventListener('click', () => updatePricing(button)));
-        const initializeSlider = () => updatePricing(toggle.querySelector('.toggle-btn.active'));
-        window.addEventListener('load', initializeSlider);
-        window.addEventListener('resize', initializeSlider);
-
         // --- Multi-step Form Logic ---
         const showFormBtn = document.getElementById('show-form-btn');
         const contactForm = document.getElementById('contactForm');
@@ -743,6 +678,41 @@
                 closeModal();
             }
         });
+
+        // --- Scroll Animation Logic ---
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- Back to Top Button Logic ---
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+        });
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
+
