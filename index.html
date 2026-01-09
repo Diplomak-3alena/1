@@ -14,45 +14,38 @@
         ::-webkit-scrollbar-track{background:var(--bg)}
         ::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--gold2));border-radius:10px}
         
-        /* Custom Cursor - Desktop Only - Shows alongside normal cursor */
-        .cursor{position:fixed;width:20px;height:20px;border:2px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .15s,width .3s,height .3s,opacity .3s;mix-blend-mode:difference;opacity:0}
-        .cursor-dot{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .08s;opacity:0}
+        /* Custom Cursor - Desktop Only */
+        .cursor{position:fixed;width:20px;height:20px;border:2px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:difference;opacity:0;will-change:transform,width,height}
+        .cursor-dot{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;opacity:0;will-change:transform}
         .cursor.active,.cursor-dot.active{opacity:1}
         .cursor.hover{width:50px;height:50px;background:rgba(255,215,0,0.1)}
         @media(max-width:768px){.cursor,.cursor-dot{display:none}}
         
-        /* Glow Lines */
-        .glow-line{position:fixed;height:1px;width:100%;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.2;z-index:-1;pointer-events:none}
-        .glow-line-1{top:20%;animation:glowMove 10s linear infinite}
-        .glow-line-2{top:50%;animation:glowMove 14s linear infinite reverse}
-        .glow-line-3{top:80%;animation:glowMove 12s linear infinite}
-        @keyframes glowMove{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-        
-        .noise{position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:.03}
-        .noise::before{content:'';position:absolute;inset:-200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");animation:noiseAnim .2s infinite}
-        @keyframes noiseAnim{0%,100%{transform:translate(0,0)}50%{transform:translate(-5%,-5%)}}
-        
         .mesh-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse 80% 50% at 20% 40%,rgba(0,77,64,.15),transparent 50%),radial-gradient(ellipse 60% 40% at 80% 60%,rgba(255,215,0,.08),transparent 50%),linear-gradient(180deg,#000d0a,#001a14 50%,#000d0a)}
         
-        .orb{position:fixed;border-radius:50%;filter:blur(100px);z-index:-1;animation:orbFloat 20s ease-in-out infinite}
-        .orb-1{width:600px;height:600px;background:rgba(255,215,0,.08);top:-200px;right:-200px}
-        .orb-2{width:500px;height:500px;background:rgba(0,105,92,.15);bottom:-150px;left:-150px;animation-delay:-10s}
-        .orb-3{width:350px;height:350px;background:rgba(255,215,0,.06);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-5s}
+        .orb{position:fixed;border-radius:50%;filter:blur(80px);z-index:-1;will-change:transform}
+        .orb-1{width:500px;height:500px;background:rgba(255,215,0,.07);top:-150px;right:-150px;animation:orbFloat 20s ease-in-out infinite}
+        .orb-2{width:400px;height:400px;background:rgba(0,105,92,.12);bottom:-100px;left:-100px;animation:orbFloat 20s ease-in-out infinite reverse}
+        .orb-3{width:300px;height:300px;background:rgba(255,215,0,.05);top:50%;left:50%;transform:translate(-50%,-50%);animation:orbFloat 25s ease-in-out infinite}
         @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-30px) scale(1.05)}}
+        @media(max-width:768px){.orb{filter:blur(60px);opacity:.7}.orb-1{width:300px;height:300px}.orb-2{width:250px;height:250px}.orb-3{width:200px;height:200px}}
         
-        .particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
-        .particle{position:absolute;border-radius:50%;opacity:0;animation:rise 20s infinite}
-        .particle.gold{background:var(--gold);box-shadow:0 0 10px var(--gold),0 0 20px var(--gold)}
-        .particle.teal{background:#00bfa5;box-shadow:0 0 10px #00bfa5}
-        @keyframes rise{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.8}90%{opacity:.8}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+        .particles{position:fixed;inset:0;z-index:-1;pointer-events:none;contain:strict}
+        .particle{position:absolute;border-radius:50%;opacity:0;will-change:transform,opacity}
+        .particle.gold{background:var(--gold);box-shadow:0 0 6px var(--gold)}
+        .particle.teal{background:#00bfa5;box-shadow:0 0 6px #00bfa5}
+        @media(min-width:769px){.particle{animation:rise 20s infinite}}
+        @keyframes rise{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.7}90%{opacity:.7}100%{transform:translateY(-10vh) scale(1);opacity:0}}
         
         .text-gradient{background:linear-gradient(135deg,#fff9c4,#ffd700,#f9a825,#ffd700,#fff9c4);background-size:400% 400%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s ease infinite}
         @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
         
-        .glass{background:linear-gradient(135deg,rgba(0,56,46,.3),rgba(0,41,32,.2));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1)}
+        .glass{background:linear-gradient(135deg,rgba(0,56,46,.3),rgba(0,41,32,.2));border:1px solid rgba(255,255,255,.1)}
+        @media(min-width:769px){.glass{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}}
         
         nav{position:fixed;top:0;width:100%;z-index:100;transition:all .4s;padding:1rem 0}
-        nav.scrolled{background:rgba(0,13,10,.95);backdrop-filter:blur(20px);padding:.7rem 0;box-shadow:0 4px 30px rgba(0,0,0,.4)}
+        nav.scrolled{background:rgba(0,13,10,.95);padding:.7rem 0;box-shadow:0 4px 30px rgba(0,0,0,.4)}
+        @media(min-width:769px){nav.scrolled{backdrop-filter:blur(15px)}}
         .nav-c{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center}
         .logo{display:flex;align-items:center;gap:.75rem}
         .logo-i{width:50px;height:50px;background:linear-gradient(135deg,#fff176,var(--gold),var(--gold2));border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.5rem;color:var(--bg);box-shadow:0 4px 25px rgba(255,215,0,.4);animation:logoPulse 3s ease-in-out infinite;position:relative;overflow:hidden}
@@ -70,6 +63,7 @@
         .float-i{position:absolute;font-size:3.5rem;opacity:.15;filter:drop-shadow(0 0 30px rgba(255,215,0,.5));animation:floatI 8s ease-in-out infinite}
         .float-i:nth-child(1){top:15%;right:10%}.float-i:nth-child(2){top:55%;left:8%;animation-delay:-2s;font-size:3rem}.float-i:nth-child(3){bottom:18%;right:12%;animation-delay:-4s}
         @keyframes floatI{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-25px) rotate(5deg)}}
+        @media(max-width:768px){.float-i{display:none}}
         
         .hero-c{max-width:850px;text-align:center;position:relative;z-index:1}
         .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border-radius:50px;font-size:.9rem;color:var(--gold);margin-bottom:1.5rem;position:relative;overflow:hidden;border:1px solid rgba(255,215,0,.2)}
@@ -222,12 +216,14 @@
         .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.4,0,.2,1)}
         .reveal.active{opacity:1;transform:translateY(0)}
         
-        /* Enhanced Modal System */
-        .modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0);backdrop-filter:blur(0px);display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;visibility:hidden;transition:all .4s cubic-bezier(.4,0,.2,1)}
-        .modal-overlay.active{opacity:1;visibility:visible;background:rgba(0,0,0,.85);backdrop-filter:blur(12px)}
+        /* Enhanced Modal */
+        .modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;visibility:hidden;transition:all .4s}
+        .modal-overlay.active{opacity:1;visibility:visible;background:rgba(0,0,0,.85)}
+        @media(min-width:769px){.modal-overlay.active{backdrop-filter:blur(8px)}}
         
-        .modal{max-width:500px;width:100%;background:linear-gradient(145deg,rgba(0,56,46,.4),rgba(0,30,25,.6));backdrop-filter:blur(30px);border:1px solid rgba(255,215,0,.15);border-radius:28px;padding:0;position:relative;overflow:hidden;transform:scale(.7) translateY(50px);opacity:0;transition:all .5s cubic-bezier(.34,1.56,.64,1)}
+        .modal{max-width:500px;width:100%;background:linear-gradient(145deg,rgba(0,56,46,.4),rgba(0,30,25,.6));border:1px solid rgba(255,215,0,.15);border-radius:28px;padding:0;position:relative;overflow:hidden;transform:scale(.7) translateY(50px);opacity:0;transition:all .5s cubic-bezier(.34,1.56,.64,1)}
         .modal-overlay.active .modal{transform:scale(1) translateY(0);opacity:1}
+        @media(min-width:769px){.modal{backdrop-filter:blur(20px)}}
         
         .modal::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(255,215,0,.1),transparent,rgba(255,215,0,.05),transparent);animation:modalRotate 8s linear infinite;opacity:0;transition:opacity .5s}
         .modal-overlay.active .modal::before{opacity:1}
@@ -254,7 +250,7 @@
         .modal-price-note{color:rgba(255,255,255,.5);font-size:.85rem;margin-top:.3rem}
         
         .modal-features{list-style:none;margin-bottom:1.5rem;text-align:right;position:relative}
-        .modal-features-bg{position:absolute;background:linear-gradient(135deg,rgba(255,215,0,.15),rgba(255,215,0,.08));border:1px solid rgba(255,215,0,.3);border-radius:14px;pointer-events:none;opacity:0;z-index:0;box-shadow:0 0 20px rgba(255,215,0,.15),inset 0 0 20px rgba(255,215,0,.05);transition:top .35s cubic-bezier(.4,0,.2,1),left .35s cubic-bezier(.4,0,.2,1),width .3s cubic-bezier(.4,0,.2,1),height .3s cubic-bezier(.4,0,.2,1),opacity .2s ease,border-radius .35s cubic-bezier(.4,0,.2,1)}
+        .modal-features-bg{position:absolute;background:linear-gradient(135deg,rgba(255,215,0,.15),rgba(255,215,0,.08));border:1px solid rgba(255,215,0,.3);border-radius:14px;pointer-events:none;opacity:0;z-index:0;box-shadow:0 0 20px rgba(255,215,0,.15),inset 0 0 20px rgba(255,215,0,.05);transition:top .35s cubic-bezier(.4,0,.2,1),left .35s cubic-bezier(.4,0,.2,1),width .3s cubic-bezier(.4,0,.2,1),height .3s cubic-bezier(.4,0,.2,1),opacity .2s ease}
         .modal-features-bg.active{opacity:1}
         .modal-features-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.1),transparent 60%);border-radius:inherit}
         .modal-features li{display:flex;align-items:flex-start;gap:.75rem;padding:.8rem 1rem;margin-bottom:.5rem;background:rgba(0,56,46,.2);border:1px solid rgba(255,255,255,.05);border-radius:12px;opacity:0;transform:translateX(30px);transition:border-color .15s ease,background .15s ease;position:relative;z-index:1;cursor:default}
@@ -277,21 +273,17 @@
         .modal-btn.secondary{background:rgba(255,255,255,.1);color:#fff}
         .modal-btn.secondary:hover{background:rgba(255,255,255,.15)}
         
-        @media(max-width:768px){.stats{gap:.6rem}.stat{padding:1rem .5rem}.stat-v{font-size:1.6rem}.imp-note{flex-direction:column;text-align:center;padding:1.5rem}.nav-cta span{display:none}.p-grid{grid-template-columns:1fr}.float-i{display:none}.modal{max-width:95%}.modal-cta{flex-direction:column}}
+        @media(max-width:768px){.stats{gap:.6rem}.stat{padding:1rem .5rem}.stat-v{font-size:1.6rem}.imp-note{flex-direction:column;text-align:center;padding:1.5rem}.nav-cta span{display:none}.p-grid{grid-template-columns:1fr}.modal{max-width:95%}.modal-cta{flex-direction:column}}
         @media(max-width:480px){.hero-btns,.cta-btns{flex-direction:column;width:100%}.btn-p,.btn-s{width:100%;justify-content:center}}
     </style>
 </head>
 <body>
     <div class="cursor" id="cursor"></div>
     <div class="cursor-dot" id="cursorDot"></div>
-    <div class="noise"></div>
     <div class="mesh-bg"></div>
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
-    <div class="glow-line glow-line-1"></div>
-    <div class="glow-line glow-line-2"></div>
-    <div class="glow-line glow-line-3"></div>
     <div class="particles" id="particles"></div>
     
     <nav id="navbar">
@@ -362,7 +354,7 @@
                 <div class="p-price"><span class="price-v text-gradient">45 دينار</span><span class="price-p"> شهرياً</span></div>
                 <ul class="p-feat">
                     <li><span class="chk">✔</span><span><strong>خدمة VIP:</strong> إنجاز شامل 100%</span></li>
-                    <li><span class="chk">✔</span><span><strong>البحث الاستقصائي:</strong> من الألف للياء</span></li>
+                    <li><span class="chk">✔</span><span><strong>البحث الاستقصائي:</strong> من الألف لليـاء</span></li>
                     <li><span class="chk">✔</span><span><strong>ملف الإنجاز:</strong> تصميم احترافي</span></li>
                 </ul>
                 <span class="p-cta">اضغط لعرض التفاصيل</span>
@@ -377,7 +369,7 @@
         <div class="sec-h reveal"><h2 class="sec-t">خدمات <span class="text-gradient">فردية</span></h2><p class="sec-sub">لا تحتاج باقة شهرية؟ احصل على الخدمة التي تحتاجها فقط</p></div>
         <div class="s-grid">
             <div class="s-card glass reveal" onclick="openModal('tasks')"><div class="s-emoji">📋</div><h3 class="s-name">مهام أسبوعية</h3><div class="s-price text-gradient">2-5 دنانير</div><p class="s-note">حسب نوع المهمة</p><span class="s-link">اضغط للتفاصيل ←</span></div>
-            <div class="s-card glass reveal" onclick="openModal('article')"><div class="s-emoji">✏️</div><h3 class="s-name">كتابة مقالات</h3><div class="s-price text-gradient">10-15 دينار</div><p class="s-note">1000-1500 كلمة مع ضمان الاستلال</p><span class="s-link">اضغط للتفاصيل ←</span></div>
+            <div class="s-card glass reveal" onclick="openModal('article')"><div class="s-emoji">✍️</div><h3 class="s-name">كتابة مقالات</h3><div class="s-price text-gradient">10-15 دينار</div><p class="s-note">1000-1500 كلمة مع ضمان الاستلال</p><span class="s-link">اضغط للتفاصيل ←</span></div>
             <div class="s-card glass hl reveal" onclick="openModal('research')"><div class="s-emoji">🔍</div><h3 class="s-name">البحث الاستقصائي</h3><div class="s-price text-gradient">70 دينار</div><p class="s-note">شامل جميع المراحل على مدار 3 أسابيع</p><span class="s-link">اضغط للتفاصيل ←</span></div>
             <div class="s-card glass reveal" onclick="openModal('presentation')"><div class="s-emoji">🎨</div><h3 class="s-name">عروض تقديمية فاخرة</h3><div class="s-price text-gradient">7 دنانير</div><p class="s-note">للدرس المصغر مع التعديلات</p><span class="s-link">اضغط للتفاصيل ←</span></div>
             <div class="s-card glass reveal" onclick="openModal('turnitin')"><div class="s-emoji">✅</div><h3 class="s-name">فحص Turnitin</h3><div class="s-price text-gradient">1 دينار</div><p class="s-note">فحص المقالات والأبحاث</p><span class="s-link">اضغط للتفاصيل ←</span></div>
@@ -417,7 +409,6 @@
     <a href="https://wa.me/962779283635?text=مرحباً، أحتاج مساعدة" class="fl-wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     <button class="sc-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg></button>
 
-    <!-- Universal Modal -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeOnOverlay(event)">
         <div class="modal">
             <div class="modal-inner">
@@ -443,252 +434,39 @@
     </div>
 
     <script>
-        // Modal Data
-        const modalData = {
-            silver: {
-                icon: '🥈', title: 'الباقة الفضية', subtitle: 'للمعلمين النشطين',
-                price: '25 دينار/شهر', priceNote: 'اشتراك شهري متجدد',
-                features: ['إنجاز جميع المهام الأسبوعية الشهرية','مراجعة وتدقيق شامل لكل مهمة','تعديلات مجانية حتى الرضا','دعم فني عبر الواتساب','تسليم في الوقت المحدد'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد الاشتراك في الباقة الفضية'
-            },
-            gold: {
-                icon: '👑', title: 'الباقة الذهبية', subtitle: 'الحل الشامل المريح - الأكثر طلباً',
-                price: '45 دينار/شهر', priceNote: 'شامل جميع الخدمات',
-                features: ['خدمة VIP: إنجاز شامل 100%','البحث الاستقصائي من الألف للياء','ملف الإنجاز الإلكتروني باحترافية','تجهيز الجلسة الإرشادية','صياغة المهام بأسلوب مناسب','ضمان الاستلال عبر Turnitin','أرشفة سحابية على Google Drive'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد الاشتراك في الباقة الذهبية'
-            },
-            tasks: {
-                icon: '📋', title: 'مهام أسبوعية', subtitle: 'إنجاز المهام الأسبوعية بجودة عالية',
-                price: '2-5 دنانير', priceNote: 'حسب نوع المهمة وحجمها',
-                features: ['إنجاز سريع خلال 24-48 ساعة','مراجعة وتدقيق شامل','تعديلات مجانية حتى الرضا','صياغة احترافية'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد الاستفسار عن المهام الأسبوعية'
-            },
-            article: {
-                icon: '✏️', title: 'كتابة مقالات', subtitle: 'مقالات احترافية بأسلوب أكاديمي',
-                price: '10-15 دينار', priceNote: '1000-1500 كلمة',
-                features: ['كتابة أصلية 100% بدون نسخ','فحص Turnitin مجاني','تنسيق أكاديمي متكامل','مراجع وتوثيق صحيح'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد خدمة كتابة مقال'
-            },
-            research: {
-                icon: '🔍', title: 'البحث الاستقصائي', subtitle: 'بحث شامل من الألف للياء',
-                price: '70 دينار', priceNote: 'شامل جميع المراحل - 3 أسابيع',
-                features: ['تحديد المشكلة وصياغة الأسئلة','مراجعة الأدبيات والإطار النظري','جمع البيانات والتحليل','كتابة التقرير النهائي','إعداد العرض التقديمي','ضمان الاستلال'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد الاستفسار عن البحث الاستقصائي'
-            },
-            presentation: {
-                icon: '🎨', title: 'عروض تقديمية فاخرة', subtitle: 'تصميم احترافي للدرس المصغر',
-                price: '7 دنانير', priceNote: 'شامل التعديلات',
-                features: ['تصميم عصري وجذاب','رسوم وأيقونات احترافية','تنسيق مناسب للعرض','تعديلات مجانية'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد تصميم عرض تقديمي'
-            },
-            turnitin: {
-                icon: '✅', title: 'فحص Turnitin', subtitle: 'فحص نسبة الاستلال',
-                price: '1 دينار', priceNote: 'لكل فحص',
-                features: ['تقرير Turnitin الأصلي','نتيجة فورية','فحص دقيق وموثوق'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد فحص على Turnitin'
-            },
-            portfolio: {
-                icon: '📁', title: 'تصميم ملف الإنجاز', subtitle: 'ملف إنجاز إلكتروني احترافي',
-                price: '10 دنانير', priceNote: 'تصميم كامل',
-                features: ['تصميم عصري ومميز','تنظيم احترافي للمحتوى','سهل التصفح والعرض','قابل للتعديل'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد تصميم ملف إنجاز'
-            },
-            edit: {
-                icon: '📄', title: 'تعديل الأبحاث', subtitle: 'تعديل حسب التغذية الراجعة',
-                price: 'حسب الحجم', priceNote: 'يعتمد على حجم التعديلات',
-                features: ['تعديل حسب ملاحظات المرشد','تحسين الصياغة','إعادة التنسيق','مراجعة شاملة'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أحتاج تعديل بحث'
-            },
-            tool: {
-                icon: '📊', title: 'أداة تقييم التطور', subtitle: 'النسخة الأساسية',
-                price: '10 دنانير', priceNote: 'أداة جاهزة للاستخدام',
-                features: ['أداة تقييم متكاملة','سهلة الاستخدام','قابلة للتخصيص'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد أداة تقييم التطور'
-            },
-            toolPlus: {
-                icon: '⭐', title: 'أداة تقييم التطور بلس', subtitle: 'النسخة المتقدمة',
-                price: '15 دينار', priceNote: 'مميزات إضافية',
-                features: ['جميع مميزات النسخة الأساسية','تحليلات متقدمة','تقارير مفصلة','دعم فني'],
-                cta: 'https://wa.me/962779283635?text=مرحباً، أريد أداة تقييم التطور بلس'
-            },
-            terms: {
-                icon: '📋', title: 'شروط الخدمة', subtitle: 'يُعد طلبك موافقة على البنود التالية',
-                price: '', priceNote: '',
-                features: ['طبيعة الخدمة: دعم أكاديمي ونموذج استرشادي','مسؤولية العميل: الاستخدام الصحيح للمواد','المدفوعات: نهائية وغير قابلة للاسترداد','حقوق الملكية: للاستخدام الشخصي فقط','السرية: نلتزم بحفظ خصوصية معلوماتك'],
-                cta: '', hidePrice: true, ctaText: 'فهمت وأوافق', closeCta: true
-            },
-            privacy: {
-                icon: '🔒', title: 'سياسة الخصوصية', subtitle: 'نحترم خصوصيتك ونلتزم بحماية معلوماتك',
-                price: '', priceNote: '',
-                features: ['نجمع المعلومات الضرورية فقط لتقديم الخدمة','نستخدمها فقط للتواصل وتقديم الخدمة','إجراءات أمنية صارمة لحماية بياناتك','لا نشارك معلوماتك مع أي طرف ثالث'],
-                cta: '', hidePrice: true, ctaText: 'فهمت', closeCta: true
-            }
-        };
+        const modalData={silver:{icon:'🥈',title:'الباقة الفضية',subtitle:'للمعلمين النشطين',price:'25 دينار/شهر',priceNote:'اشتراك شهري متجدد',features:['إنجاز جميع المهام الأسبوعية الشهرية','مراجعة وتدقيق شامل لكل مهمة','تعديلات مجانية حتى الرضا','دعم فني عبر الواتساب','تسليم في الوقت المحدد'],cta:'https://wa.me/962779283635?text=مرحباً، أريد الاشتراك في الباقة الفضية'},gold:{icon:'👑',title:'الباقة الذهبية',subtitle:'الحل الشامل المريح - الأكثر طلباً',price:'45 دينار/شهر',priceNote:'شامل جميع الخدمات',features:['خدمة VIP: إنجاز شامل 100%','البحث الاستقصائي من الألف لليـاء','ملف الإنجاز الإلكتروني باحترافية','تجهيز الجلسة الإرشادية','صياغة المهام بأسلوب مناسب','ضمان الاستلال عبر Turnitin','أرشفة سحابية على Google Drive'],cta:'https://wa.me/962779283635?text=مرحباً، أريد الاشتراك في الباقة الذهبية'},tasks:{icon:'📋',title:'مهام أسبوعية',subtitle:'إنجاز المهام الأسبوعية بجودة عالية',price:'2-5 دنانير',priceNote:'حسب نوع المهمة وحجمها',features:['إنجاز سريع خلال 24-48 ساعة','مراجعة وتدقيق شامل','تعديلات مجانية حتى الرضا','صياغة احترافية'],cta:'https://wa.me/962779283635?text=مرحباً، أريد الاستفسار عن المهام الأسبوعية'},article:{icon:'✍️',title:'كتابة مقالات',subtitle:'مقالات احترافية بأسلوب أكاديمي',price:'10-15 دينار',priceNote:'1000-1500 كلمة',features:['كتابة أصلية 100% بدون نسخ','فحص Turnitin مجاني','تنسيق أكاديمي متكامل','مراجع وتوثيق صحيح'],cta:'https://wa.me/962779283635?text=مرحباً، أريد خدمة كتابة مقال'},research:{icon:'🔍',title:'البحث الاستقصائي',subtitle:'بحث شامل من الألف لليـاء',price:'70 دينار',priceNote:'شامل جميع المراحل - 3 أسابيع',features:['تحديد المشكلة وصياغة الأسئلة','مراجعة الأدبيات والإطار النظري','جمع البيانات والتحليل','كتابة التقرير النهائي','إعداد العرض التقديمي','ضمان الاستلال'],cta:'https://wa.me/962779283635?text=مرحباً، أريد الاستفسار عن البحث الاستقصائي'},presentation:{icon:'🎨',title:'عروض تقديمية فاخرة',subtitle:'تصميم احترافي للدرس المصغر',price:'7 دنانير',priceNote:'شامل التعديلات',features:['تصميم عصري وجذاب','رسوم وأيقونات احترافية','تنسيق مناسب للعرض','تعديلات مجانية'],cta:'https://wa.me/962779283635?text=مرحباً، أريد تصميم عرض تقديمي'},turnitin:{icon:'✅',title:'فحص Turnitin',subtitle:'فحص نسبة الاستلال',price:'1 دينار',priceNote:'لكل فحص',features:['تقرير Turnitin الأصلي','نتيجة فورية','فحص دقيق وموثوق'],cta:'https://wa.me/962779283635?text=مرحباً، أريد فحص على Turnitin'},portfolio:{icon:'📁',title:'تصميم ملف الإنجاز',subtitle:'ملف إنجاز إلكتروني احترافي',price:'10 دنانير',priceNote:'تصميم كامل',features:['تصميم عصري ومميز','تنظيم احترافي للمحتوى','سهل التصفح والعرض','قابل للتعديل'],cta:'https://wa.me/962779283635?text=مرحباً، أريد تصميم ملف إنجاز'},edit:{icon:'📄',title:'تعديل الأبحاث',subtitle:'تعديل حسب التغذية الراجعة',price:'حسب الحجم',priceNote:'يعتمد على حجم التعديلات',features:['تعديل حسب ملاحظات المرشد','تحسين الصياغة','إعادة التنسيق','مراجعة شاملة'],cta:'https://wa.me/962779283635?text=مرحباً، أحتاج تعديل بحث'},tool:{icon:'📊',title:'أداة تقييم التطور',subtitle:'النسخة الأساسية',price:'10 دنانير',priceNote:'أداة جاهزة للاستخدام',features:['أداة تقييم متكاملة','سهلة الاستخدام','قابلة للتخصيص'],cta:'https://wa.me/962779283635?text=مرحباً، أريد أداة تقييم التطور'},toolPlus:{icon:'⭐',title:'أداة تقييم التطور بلس',subtitle:'النسخة المتقدمة',price:'15 دينار',priceNote:'مميزات إضافية',features:['جميع مميزات النسخة الأساسية','تحليلات متقدمة','تقارير مفصلة','دعم فني'],cta:'https://wa.me/962779283635?text=مرحباً، أريد أداة تقييم التطور بلس'},terms:{icon:'📋',title:'شروط الخدمة',subtitle:'يُعد طلبك موافقة على البنود التالية',price:'',priceNote:'',features:['طبيعة الخدمة: دعم أكاديمي ونموذج استرشادي','مسؤولية العميل: الاستخدام الصحيح للمواد','المدفوعات: نهائية وغير قابلة للاسترداد','حقوق الملكية: للاستخدام الشخصي فقط','السرية: نلتزم بحفظ خصوصية معلوماتك'],cta:'',hidePrice:!0,ctaText:'فهمت وأوافق',closeCta:!0},privacy:{icon:'🔒',title:'سياسة الخصوصية',subtitle:'نحترم خصوصيتك ونلتزم بحماية معلوماتك',price:'',priceNote:'',features:['نجمع المعلومات الضرورية فقط لتقديم الخدمة','نستخدمها فقط للتواصل وتقديم الخدمة','إجراءات أمنية صارمة لحماية بياناتك','لا نشارك معلوماتك مع أي طرف ثالث'],cta:'',hidePrice:!0,ctaText:'فهمت',closeCta:!0}};
 
-        function openModal(key) {
-            const d = modalData[key];
-            document.getElementById('modalIcon').textContent = d.icon;
-            document.getElementById('modalTitle').textContent = d.title;
-            document.getElementById('modalSubtitle').textContent = d.subtitle;
-            document.getElementById('modalPrice').textContent = d.price;
-            document.getElementById('modalPriceNote').textContent = d.priceNote;
-            
-            const priceBox = document.querySelector('.modal-price-box');
-            priceBox.style.display = d.hidePrice ? 'none' : 'block';
-            
-            const featuresHtml = d.features.map(f => `<li><span class="feature-icon">✔</span><span>${f}</span></li>`).join('');
-            document.getElementById('modalFeatures').innerHTML = '<div class="modal-features-bg" id="featuresBg"></div>' + featuresHtml;
-            
-            // Setup liquid hover effect
-            setTimeout(setupLiquidHover, 100);
-            
-            const ctaBtn = document.getElementById('modalCta');
-            if (d.closeCta) {
-                ctaBtn.onclick = closeModal;
-                ctaBtn.href = '#';
-                ctaBtn.textContent = d.ctaText || 'إغلاق';
-            } else {
-                ctaBtn.onclick = null;
-                ctaBtn.href = d.cta;
-                ctaBtn.textContent = 'اطلب الآن عبر واتساب';
-            }
-            
-            document.getElementById('modalOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+        function openModal(k){const d=modalData[k];document.getElementById('modalIcon').textContent=d.icon;document.getElementById('modalTitle').textContent=d.title;document.getElementById('modalSubtitle').textContent=d.subtitle;document.getElementById('modalPrice').textContent=d.price;document.getElementById('modalPriceNote').textContent=d.priceNote;document.querySelector('.modal-price-box').style.display=d.hidePrice?'none':'block';document.getElementById('modalFeatures').innerHTML='<div class="modal-features-bg" id="featuresBg"></div>'+d.features.map(f=>`<li><span class="feature-icon">✔</span><span>${f}</span></li>`).join('');setTimeout(setupLiquidHover,100);const c=document.getElementById('modalCta');if(d.closeCta){c.onclick=closeModal;c.href='#';c.textContent=d.ctaText||'إغلاق'}else{c.onclick=null;c.href=d.cta;c.textContent='اطلب الآن عبر واتساب'}document.getElementById('modalOverlay').classList.add('active');document.body.style.overflow='hidden'}
 
-        function closeModal() {
-            document.getElementById('modalOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-        }
+        function closeModal(){document.getElementById('modalOverlay').classList.remove('active');document.body.style.overflow=''}
+        function closeOnOverlay(e){if(e.target===e.currentTarget)closeModal()}
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-        function closeOnOverlay(e) {
-            if (e.target === e.currentTarget) closeModal();
-        }
+        // Liquid Hover Effect
+        function setupLiquidHover(){const f=document.getElementById('modalFeatures'),bg=document.getElementById('featuresBg'),items=f.querySelectorAll('li');let first=!0;items.forEach(item=>{item.addEventListener('mouseenter',()=>{const r=item.getBoundingClientRect(),p=f.getBoundingClientRect();if(first){bg.style.transition='opacity .2s';first=!1;setTimeout(()=>bg.style.transition='',50)}bg.style.top=(r.top-p.top)+'px';bg.style.left=(r.left-p.left)+'px';bg.style.width=r.width+'px';bg.style.height=r.height+'px';bg.classList.add('active')})});f.addEventListener('mouseleave',()=>{bg.classList.remove('active');first=!0})}
 
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+        // Optimized Particles - 20 particles, disabled on mobile via CSS
+        const p=document.getElementById('particles');
+        for(let i=0;i<20;i++){const d=document.createElement('div');d.className='particle '+(Math.random()>.7?'teal':'gold');d.style.left=Math.random()*100+'%';d.style.width=d.style.height=(2+Math.random()*3)+'px';d.style.animationDelay=Math.random()*20+'s';d.style.animationDuration=(15+Math.random()*10)+'s';p.appendChild(d)}
 
-        // Liquid Hover Effect for Modal Features
-        function setupLiquidHover() {
-            const features = document.getElementById('modalFeatures');
-            const bg = document.getElementById('featuresBg');
-            const items = features.querySelectorAll('li');
-            
-            let isFirstHover = true;
-            
-            items.forEach(item => {
-                item.addEventListener('mouseenter', () => {
-                    const rect = item.getBoundingClientRect();
-                    const parentRect = features.getBoundingClientRect();
-                    
-                    // Disable transition for first hover to avoid animation from 0,0
-                    if (isFirstHover) {
-                        bg.style.transition = 'opacity .2s ease';
-                        isFirstHover = false;
-                        setTimeout(() => {
-                            bg.style.transition = '';
-                        }, 50);
-                    }
-                    
-                    bg.style.top = (rect.top - parentRect.top) + 'px';
-                    bg.style.left = (rect.left - parentRect.left) + 'px';
-                    bg.style.width = rect.width + 'px';
-                    bg.style.height = rect.height + 'px';
-                    bg.classList.add('active');
-                });
-            });
-            
-            features.addEventListener('mouseleave', () => {
-                bg.classList.remove('active');
-                isFirstHover = true;
-            });
-        }
+        // Custom Cursor - Optimized with will-change
+        if(window.innerWidth>768){const cursor=document.getElementById('cursor'),dot=document.getElementById('cursorDot');let mX=0,mY=0,cX=0,cY=0,raf;setTimeout(()=>{cursor.classList.add('active');dot.classList.add('active')},500);document.addEventListener('mousemove',e=>{mX=e.clientX;mY=e.clientY;dot.style.transform=`translate(${mX-3}px,${mY-3}px)`});function animate(){cX+=(mX-cX)*.15;cY+=(mY-cY)*.15;cursor.style.transform=`translate(${cX-10}px,${cY-10}px)`;raf=requestAnimationFrame(animate)}animate();document.querySelectorAll('a,button,.p-card,.s-card,.f-card').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'))})}
 
-        // Particles
-        const p = document.getElementById('particles');
-        for (let i = 0; i < 35; i++) {
-            const d = document.createElement('div');
-            d.className = 'particle ' + (Math.random() > .7 ? 'teal' : 'gold');
-            d.style.left = Math.random() * 100 + '%';
-            d.style.width = d.style.height = (2 + Math.random() * 4) + 'px';
-            d.style.animationDelay = Math.random() * 20 + 's';
-            d.style.animationDuration = (15 + Math.random() * 10) + 's';
-            p.appendChild(d);
-        }
+        // Card Glow Tracking - Throttled
+        let glowRaf;document.querySelectorAll('.f-card,.s-card,.p-card').forEach(card=>{card.addEventListener('mousemove',e=>{if(glowRaf)return;glowRaf=requestAnimationFrame(()=>{const r=card.getBoundingClientRect();card.style.setProperty('--mouse-x',((e.clientX-r.left)/r.width)*100+'%');card.style.setProperty('--mouse-y',((e.clientY-r.top)/r.height)*100+'%');glowRaf=null})})});
 
-        // Custom Cursor (Desktop Only) - Works alongside normal cursor
-        if (window.innerWidth > 768) {
-            const cursor = document.getElementById('cursor'), cursorDot = document.getElementById('cursorDot');
-            let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-            
-            // Show cursor elements after a slight delay
-            setTimeout(() => {
-                cursor.classList.add('active');
-                cursorDot.classList.add('active');
-            }, 500);
-            
-            document.addEventListener('mousemove', e => {
-                mouseX = e.clientX; mouseY = e.clientY;
-                cursorDot.style.transform = `translate(${mouseX - 3}px,${mouseY - 3}px)`;
-            });
-            function animateCursor() {
-                cursorX += (mouseX - cursorX) * .15;
-                cursorY += (mouseY - cursorY) * .15;
-                cursor.style.transform = `translate(${cursorX - 10}px,${cursorY - 10}px)`;
-                requestAnimationFrame(animateCursor);
-            }
-            animateCursor();
-            document.querySelectorAll('a,button,.p-card,.s-card,.f-card').forEach(el => {
-                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-            });
-        }
+        // Magnetic Buttons
+        document.querySelectorAll('.magnetic').forEach(btn=>{btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.2}px)`});btn.addEventListener('mouseleave',()=>btn.style.transform='')});
 
-        // Card Glow Tracking
-        document.querySelectorAll('.f-card, .s-card, .p-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                card.style.setProperty('--mouse-x', x + '%');
-                card.style.setProperty('--mouse-y', y + '%');
-            });
-        });
-
-        // Magnetic Button Effect
-        document.querySelectorAll('.magnetic').forEach(btn => {
-            btn.addEventListener('mousemove', e => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = '';
-            });
-        });
-
-        // Navbar Scroll
-        const nav = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 50);
-            document.getElementById('scrollTop').classList.toggle('vis', window.scrollY > 400);
-        });
+        // Navbar & Scroll - Throttled
+        const nav=document.getElementById('navbar'),scrollBtn=document.getElementById('scrollTop');let scrollRaf;window.addEventListener('scroll',()=>{if(scrollRaf)return;scrollRaf=requestAnimationFrame(()=>{nav.classList.toggle('scrolled',window.scrollY>50);scrollBtn.classList.toggle('vis',window.scrollY>400);scrollRaf=null})},{passive:true});
 
         // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.querySelector(a.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
 
-        // Scroll Reveal
-        const revealObs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); revealObs.unobserve(e.target); } });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+        // Scroll Reveal - Optimized with IntersectionObserver
+        const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');revealObs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+        document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
     </script>
 </body>
 </html>
