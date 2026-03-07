@@ -98,21 +98,14 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
 
-        .logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-        .logo-icon {
-            width: 48px; height: 48px; background: linear-gradient(135deg, var(--gold-light), var(--gold-secondary));
-            border-radius: 12px; display: grid; place-items: center;
-            font-weight: 900; color: var(--bg-deep); font-size: 1.5rem;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); position: relative; overflow: hidden;
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo-img {
+            height: 75px; width: auto;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+            transition: transform 0.3s var(--ease-elastic), filter 0.3s;
         }
-        .logo-icon::after {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(transparent, rgba(255,255,255,0.8), transparent);
-            transform: rotate(45deg) translate(-100%, -100%); animation: glitchShine 4s infinite;
-        }
-        @keyframes glitchShine { 10%, 100% { transform: rotate(45deg) translate(100%, 100%); } }
-        .logo-text h1 { font-size: 1.2rem; color: #fff; font-weight: 700; line-height: 1.1; }
-        .logo-text span { font-size: 0.75rem; color: var(--gold-primary); letter-spacing: 0.5px; }
+        .logo:hover .logo-img { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+        .footer-logo .logo-img { height: 110px; }
 
         .nav-btn {
             padding: 0.7rem 1.5rem; border-radius: 50px;
@@ -362,11 +355,7 @@
     <nav id="navbar">
         <div class="container nav-content">
             <a href="#" class="logo">
-                <div class="logo-icon">د</div>
-                <div class="logo-text">
-                    <h1>دبلومك علينا</h1>
-                    <span>راحتك أولويتنا</span>
-                </div>
+                <img src="logo_clean.png" alt="دبلومك علينا" class="logo-img">
             </a>
             <a href="https://wa.me/962779283635" class="nav-btn magnetic">
                 <span>تواصل معنا</span>
@@ -383,12 +372,12 @@
                 <span class="typing-text" id="typewriter"></span><span class="typing-cursor"></span><br>
                 <span class="text-gradient">علينا</span>
             </h1>
-            <p class="hero-desc reveal">نحن هنا لنخفف عنك أعباء الدبلوم المهني. وفر جهدك لطلابك، واترك الأوراق والمهام لنا بجودة لا تضاهى.</p>
+            <p class="hero-desc reveal">الدبلوم المهني مرهق — مهام أسبوعية، مقالات، أبحاث، وتحضير للجلسات. نحن هنا لنشيل عنك هالحمل. وفّر طاقتك لطلابك وخلّي الباقي علينا.</p>
             
             <div class="stats-grid reveal">
-                <div class="stat-box magnetic"><div class="stat-num">100%</div><div class="stat-label">نسبة النجاح</div></div>
-                <div class="stat-box magnetic"><div class="stat-num">0%</div><div class="stat-label">نسبة الاستلال</div></div>
-                <div class="stat-box magnetic"><div class="stat-num">24/7</div><div class="stat-label">دعم متواصل</div></div>
+                <div class="stat-box magnetic"><div class="stat-num">100%</div><div class="stat-label">نسبة رضا العملاء</div></div>
+                <div class="stat-box magnetic"><div class="stat-num">3-19%</div><div class="stat-label">نسبة استلال مضمونة</div></div>
+                <div class="stat-box magnetic"><div class="stat-num">24/7</div><div class="stat-label">دعم عبر واتساب</div></div>
             </div>
 
             <div class="cta-group reveal">
@@ -410,43 +399,43 @@
             <div class="smart-card reveal" data-tilt>
                 <div class="card-content">
                     <div class="card-icon">⚡</div>
-                    <h3 class="card-title">سرعة وكفاءة</h3>
-                    <p class="card-desc">التزام تام بالمواعيد. لن تقلق أبداً بشأن الـ Deadline.</p>
+                    <h3 class="card-title">تسليم قبل الـ Deadline</h3>
+                    <p class="card-desc">ما في شي أسوأ من السهر ليلة التسليم. نلتزم بمواعيد واضحة ونسلّمك شغلك بوقت كافي للمراجعة.</p>
                 </div>
             </div>
             <div class="smart-card reveal" data-tilt>
                 <div class="card-content">
                     <div class="card-icon">🎯</div>
-                    <h3 class="card-title">دقة واحترافية</h3>
-                    <p class="card-desc">فريق متخصص لضمان محتوى أكاديمي يليق باسمك.</p>
+                    <h3 class="card-title">مطابق لمعايير الأكاديمية</h3>
+                    <p class="card-desc">نعرف بالضبط شو بدها الأكاديمية الملكية. كل مهمة مبنية على المعايير المطلوبة مش كلام عام.</p>
                 </div>
             </div>
             <div class="smart-card reveal" data-tilt>
                 <div class="card-content">
                     <div class="card-icon">🛡️</div>
-                    <h3 class="card-title">ضمان الجودة</h3>
-                    <p class="card-desc">مراجعة شاملة وتعديلات مجانية حتى الرضا التام.</p>
+                    <h3 class="card-title">تعديلات حتى القبول</h3>
+                    <p class="card-desc">لو المرشد طلب تعديلات — لا تقلق. نعدّل مجاناً حتى يتم قبول العمل بالكامل.</p>
                 </div>
             </div>
              <div class="smart-card reveal" data-tilt>
                 <div class="card-content">
                     <div class="card-icon">💬</div>
-                    <h3 class="card-title">تواصل مستمر</h3>
-                    <p class="card-desc">دعم فني عبر الواتساب للإجابة على كافة استفساراتك.</p>
+                    <h3 class="card-title">دعم مباشر على واتساب</h3>
+                    <p class="card-desc">عندك سؤال أو استفسار؟ راسلنا أي وقت. نرد بسرعة ونتابع معك خطوة بخطوة.</p>
                 </div>
             </div>
              <div class="smart-card reveal" data-tilt>
                 <div class="card-content">
                     <div class="card-icon">🔒</div>
-                    <h3 class="card-title">سرية تامة</h3>
-                    <p class="card-desc">نحافظ على خصوصية معلوماتك وفق أعلى معايير الأمان.</p>
+                    <h3 class="card-title">سرية تامة ومضمونة</h3>
+                    <p class="card-desc">بياناتك وأعمالك محمية بالكامل. لا نشارك معلوماتك ولا نعيد استخدام أي عمل مع عميل آخر.</p>
                 </div>
             </div>
              <div class="smart-card reveal" data-tilt>
                 <div class="card-content">
                     <div class="card-icon">💎</div>
-                    <h3 class="card-title">أسعار منافسة</h3>
-                    <p class="card-desc">باقات مرنة تناسب جميع الاحتياجات والميزانيات.</p>
+                    <h3 class="card-title">جودة تستحق كل دينار</h3>
+                    <p class="card-desc">مش أرخص خيار بالسوق، لكن الفرق بالجودة واضح. عملاؤنا ما بيرجعوا لغيرنا.</p>
                 </div>
             </div>
         </div>
@@ -458,7 +447,7 @@
     <section id="pricing" style="padding: 6rem 0;">
         <div class="section-title reveal">
             <h2>باقات <span class="text-gradient">الراحة الشهرية</span></h2>
-            <p>اختر الباقة التي تناسبك وابدأ رحلة الراحة</p>
+            <p>اشتراك شهري ثابت — ما تفكر بشي واترك كل المهام علينا</p>
         </div>
         <div class="grid-container" style="max-width: 900px;">
             <!-- Silver -->
@@ -466,12 +455,12 @@
                 <div class="card-content">
                     <div class="card-icon">🥈</div>
                     <h3 class="card-title">الباقة الفضية</h3>
-                    <p class="card-desc">للمعلمين النشطين.</p>
-                    <div class="card-price">25 <span>دينار</span></div>
+                    <p class="card-desc">ما تفتح المنصة أبداً — نسلّم كل شي عنك</p>
+                    <div class="card-price">25 <span>دينار / شهر</span></div>
                     <ul class="feature-list">
-                        <li><span class="check">✔</span> إنجاز المهام الأسبوعية</li>
-                        <li><span class="check">✔</span> مراجعة وتدقيق شامل</li>
-                        <li><span class="check">✔</span> تعديلات مجانية</li>
+                        <li><span class="check">✔</span> إنجاز جميع المهام + تسليمها على المنصة</li>
+                        <li><span class="check">✔</span> إنجاز المساقات الجانبية مع شهاداتها</li>
+                        <li><span class="check">✔</span> تعديلات مجانية حتى الرضا</li>
                     </ul>
                     <button class="btn btn-glass magnetic" style="width: 100%; justify-content: center;">التفاصيل</button>
                 </div>
@@ -483,13 +472,13 @@
                 <div class="card-content">
                     <div class="card-icon">👑</div>
                     <h3 class="card-title text-gradient">الباقة الذهبية</h3>
-                    <p class="card-desc">الحل الملكي الشامل.</p>
-                    <div class="card-price">45 <span>دينار</span></div>
+                    <p class="card-desc">التجربة الملكية — من أول يوم لآخر يوم بدون ما تحمل هم</p>
+                    <div class="card-price">45 <span>دينار / شهر</span></div>
                     <ul class="feature-list">
-                        <li><span class="check">✔</span> <strong>خدمة VIP:</strong> إنجاز كامل من الألف للياء</li>
-                        <li><span class="check">✔</span> البحث الاستقصائي بجميع مهامه</li>
-                        <li><span class="check">✔</span> ملف الإنجاز بتصميم احترافي</li>
-                        <li><span class="check">✔</span> ضمان الاستلال 3-19%</li>
+                        <li><span class="check">✔</span> <strong>كل شي:</strong> مهام + تسليم على المنصة + مساقات جانبية</li>
+                        <li><span class="check">✔</span> البحث + المقالات + أداة التقييم + ملف الإنجاز</li>
+                        <li><span class="check">✔</span> عروض تقديمية + تقرير الجلسة الإرشادية</li>
+                        <li><span class="check">✔</span> نسبة استلال مضمونة 3-19%</li>
                     </ul>
                     <button class="btn btn-primary magnetic" style="width: 100%; justify-content: center;">اطلبها الآن</button>
                 </div>
@@ -497,7 +486,7 @@
         </div>
         
         <div class="reveal" style="text-align: center; margin-top: 2rem; color: rgba(255,255,255,0.6); font-size: 0.9rem;">
-            💳 <strong>طرق الدفع:</strong> نقبل CliQ أو التحويل البنكي
+            💳 <strong>طرق الدفع:</strong> CliQ أو تحويل بنكي — سهل وسريع
         </div>
     </section>
 
@@ -506,26 +495,26 @@
     <!-- Services Grid -->
     <section id="services" style="padding: 4rem 0;">
         <div class="section-title reveal">
-            <h2>خدمات <span class="text-gradient">فردية</span></h2>
-            <p>لا تحتاج باقة كاملة؟ اختر خدمتك حسب الطلب</p>
+            <h2>خدمات <span class="text-gradient">حسب الطلب</span></h2>
+            <p>محتاج مهمة وحدة أو خدمة محددة؟ اختر اللي بدك إياه وادفع بس عليه</p>
         </div>
         <div class="grid-container" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
             <!-- Restored ALL 9 Services -->
             <div class="smart-card reveal" data-tilt onclick="openModal('tasks')">
                 <div class="card-content">
                     <div class="card-icon">📋</div>
-                    <h3 class="card-title">مهام أسبوعية</h3>
-                    <div class="card-price" style="font-size: 1.5rem;">2-5 <span style="font-size: 0.8rem">دنانير</span></div>
-                    <p class="card-desc">منتدى: 2د | مهام: 3-5د</p>
+                    <h3 class="card-title">المهام الأسبوعية</h3>
+                    <div class="card-price" style="font-size: 1.5rem;">2 <span style="font-size: 0.8rem">دنانير</span></div>
+                    <p class="card-desc">دينارين لكل مهمة | 3 مهام بـ5 فقط</p>
                 </div>
             </div>
             
             <div class="smart-card reveal" data-tilt onclick="openModal('article')">
                 <div class="card-content">
                     <div class="card-icon">✍️</div>
-                    <h3 class="card-title">كتابة مقالات</h3>
+                    <h3 class="card-title">كتابة مقال أكاديمي</h3>
                     <div class="card-price" style="font-size: 1.5rem;">25 <span style="font-size: 0.8rem">دينار</span></div>
-                    <p class="card-desc">شامل التغذية الراجعة.</p>
+                    <p class="card-desc">شامل فحص الاستلال + توثيق APA أو MLA + تعديلات حتى القبول</p>
                 </div>
             </div>
 
@@ -534,16 +523,16 @@
                     <div class="card-icon">🔍</div>
                     <h3 class="card-title" style="color:var(--gold-secondary)">البحث الاستقصائي</h3>
                     <div class="card-price" style="font-size: 1.5rem;">75 <span style="font-size: 0.8rem">دينار</span></div>
-                    <p class="card-desc">مشروع شامل مع العرض والضمان.</p>
+                    <p class="card-desc">مشروع شامل بكل مهامه وأدواته + عرض تقديمي</p>
                 </div>
             </div>
 
             <div class="smart-card reveal" data-tilt onclick="openModal('presentation')">
                 <div class="card-content">
                     <div class="card-icon">🎨</div>
-                    <h3 class="card-title">عروض تقديمية</h3>
+                    <h3 class="card-title">عرض تقديمي</h3>
                     <div class="card-price" style="font-size: 1.5rem;">7 <span style="font-size: 0.8rem">دنانير</span></div>
-                    <p class="card-desc">تصميم باوربوينت يبهر المشرفين.</p>
+                    <p class="card-desc">تصميم احترافي يترك انطباع قوي عند المشرفين</p>
                 </div>
             </div>
 
@@ -552,7 +541,7 @@
                     <div class="card-icon">✅</div>
                     <h3 class="card-title">فحص Turnitin</h3>
                     <div class="card-price" style="font-size: 1.5rem;">5 <span style="font-size: 0.8rem">دنانير</span></div>
-                    <p class="card-desc">تقرير فحص نسبة الاستلال.</p>
+                    <p class="card-desc">تقرير أصلي من حساب مؤسسي — لا يُخزّن ملفك</p>
                 </div>
             </div>
 
@@ -561,7 +550,7 @@
                     <div class="card-icon">📁</div>
                     <h3 class="card-title">ملف الإنجاز</h3>
                     <div class="card-price" style="font-size: 1.5rem;">12 <span style="font-size: 0.8rem">دينار</span></div>
-                    <p class="card-desc">تصميم ملف إلكتروني يجمع أعمالك.</p>
+                    <p class="card-desc">اجمع كل إنجازاتك بتصميم إلكتروني يتكلم عنك</p>
                 </div>
             </div>
 
@@ -570,7 +559,7 @@
                     <div class="card-icon">📄</div>
                     <h3 class="card-title">تعديل الأبحاث</h3>
                     <div class="card-price" style="font-size: 1.5rem;">---</div>
-                    <p class="card-desc">تعديل حسب التغذية الراجعة (السعر حسب الحجم).</p>
+                    <p class="card-desc">عدّل بحثك حسب ملاحظات المرشد — أرسل الملاحظات ونرد بالسعر خلال ساعة</p>
                 </div>
             </div>
 
@@ -578,8 +567,8 @@
                 <div class="card-content">
                     <div class="card-icon">📊</div>
                     <h3 class="card-title">أداة التقييم</h3>
-                    <div class="card-price" style="font-size: 1.5rem;">10 <span style="font-size: 0.8rem">دنانير</span></div>
-                    <p class="card-desc">أداة تقييم التطور (الأساسية).</p>
+                    <div class="card-price" style="font-size: 1.5rem;">12 <span style="font-size: 0.8rem">دينار</span></div>
+                    <p class="card-desc">معايير الأكاديمية + تقرير الجلسة الإرشادية</p>
                 </div>
             </div>
 
@@ -587,26 +576,26 @@
                 <div class="card-content">
                     <div class="card-icon">⭐</div>
                     <h3 class="card-title">أداة التقييم بلس</h3>
-                    <div class="card-price" style="font-size: 1.5rem;">15 <span style="font-size: 0.8rem">دينار</span></div>
-                    <p class="card-desc">شامل التقرير والدليل.</p>
+                    <div class="card-price" style="font-size: 1.5rem;">17 <span style="font-size: 0.8rem">دينار</span></div>
+                    <p class="card-desc">حزمة الثقة الكاملة — ادخل الجلسة جاهز لأي سؤال</p>
                 </div>
             </div>
         </div>
 
         <!-- The Important Note Restored -->
         <div class="royal-alert reveal">
-            <div class="alert-icon">⚠️</div>
+            <div class="alert-icon">💡</div>
             <div class="alert-content">
-                <h4>ملاحظة هامة جداً</h4>
-                <p>هناك <strong>مهام قليلة</strong> خلال الدبلوم تتطلب تنفيذك المباشر (مثل إعطاء حصة وتصوير البيئة الصفية). نحن نساعدك في <span class="hl">التحضير الكامل</span> لها، لكن التنفيذ يحتاج تدخلك الشخصي.</p>
+                <h4>كيف نشتغل معك؟</h4>
+                <p>أغلب مهام الدبلوم نقدر ننجزها لك بالكامل. في <strong>مهام قليلة جداً</strong> تحتاج تنفيذك المباشر (مثل إعطاء حصة أو تصوير البيئة الصفية). حتى هاي — نحن نحضّر لك <span class="hl">كل شي من خطة الدرس للعرض التقديمي</span>، وأنت بس تنفّذ بثقة.</p>
             </div>
         </div>
     </section>
 
     <!-- CTA Footer -->
     <section class="cta-footer">
-        <h2 class="reveal" style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem;">جاهز للبدء؟</h2>
-        <p class="reveal" style="color: rgba(255,255,255,0.7); margin-bottom: 2rem;">انضم لمئات المعلمين وحقق <span class="text-gradient">النجاح بكل راحة</span></p>
+        <h2 class="reveal" style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem;">خلّي الدبلوم أسهل من اليوم</h2>
+        <p class="reveal" style="color: rgba(255,255,255,0.7); margin-bottom: 2rem;">راسلنا على واتساب — نرد خلال دقائق ونبدأ <span class="text-gradient">نشتغل معك فوراً</span></p>
         <div class="cta-group reveal">
             <a href="https://wa.me/962779283635" class="btn btn-primary magnetic" style="font-size: 1.2rem; padding: 1.2rem 3rem;">ابدأ المحادثة الآن</a>
         </div>
@@ -615,8 +604,8 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-grid">
-            <div class="logo">
-                <div class="logo-icon" style="width: 60px; height: 60px; font-size: 1.8rem;">د</div>
+            <div class="logo footer-logo">
+                <img src="logo_clean.png" alt="دبلومك علينا" class="logo-img">
             </div>
             <div class="footer-links">
                 <button onclick="openModal('terms')">شروط الخدمة</button>
@@ -625,7 +614,7 @@
                 <span>|</span>
                 <a href="https://wa.me/962779283635">اتصل بنا</a>
             </div>
-            <p class="copy">© 2025 دبلومك علينا. جميع الحقوق محفوظة.</p>
+            <p class="copy">© 2026 دبلومك علينا. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
@@ -656,19 +645,19 @@
     <script>
         // --- Full Data Restored from Original File ---
         const data = {
-            silver: {t:'الباقة الفضية', s:'للمعلمين النشطين', p:'25 دينار', n:'اشتراك شهري', i:'🥈', f:['إنجاز المهام الأسبوعية', 'مراجعة وتدقيق شامل', 'تعديلات مجانية حتى الرضا','دعم فني', 'ملاحظة: لا تشمل إعداد أداة التقييم ولا الأبحاث والمقالات والعروض التقديمية وملف الإنجاز'], msg:'مرحبا، مهتم بالباقة الفضية'},
-            gold: {t:'الباقة الذهبية', s:'الحل الملكي الشامل', p:'45 دينار', n:'شامل كل شيء', i:'👑', f:['إنجاز كامل للمهام من الألف إلى الياء', 'البحث الاستقصائي بجميع مهامه', 'المقالات النقدية والتحليلية والتأملية', 'تجهيز دروس إلكترونية وعروض تقديمية لجلسات التدريس المصغر', 'تجهيز أداة تقييم التطور المهني البنائية والختامية مع مساعدة المعلم في التحضير لهما وللجلسة الإرشادية', 'تجهيز ملف الإنجاز الإلكتروني في نهاية الدبلوم', 'ضمان نسبة الاستلال 3-19%'], msg:'مرحبا، مهتم بالباقة الذهبية'},
-            tasks: {t:'مهام أسبوعية', s:'إنجاز سريع', p:'2-5 دنانير', n:'حسب نوع المهمة', i:'📋', f:['مهمة المنتدى النقاشي: دينارين', 'باقي المهام: حسب حجم المهمة (3-5 دنانير)', 'إنجاز خلال 24-48 ساعة'], msg:'مرحبا، استفسار عن المهام الأسبوعية'},
-            article: {t:'كتابة مقال', s:'مقال أكاديمي', p:'25 دينار', n:'شامل التغذية الراجعة', i:'✍️', f:['مقال أكاديمي مطابق لتعليمات الأكاديمية', 'كتابة أصلية 100%', 'فحص Turnitin مجاني', 'مراجع وتوثيق صحيح'], msg:'مرحبا، مهتم بكتابة مقال'},
-            research: {t:'البحث الاستقصائي', s:'مشروع التخرج', p:'75 دينار', n:'مشروع متكامل', i:'🔍', f:['شامل ضمان نسبة الاستلال', 'التعديل عند الطلب', 'عرض تقديمي احترافي وجذاب (سيطلب منك عرضه في جلسة أمام المرشد الأكاديمي)'], msg:'مرحبا، مهتم بخدمة البحث'},
-            presentation: {t:'عرض تقديمي', s:'تصميم احترافي', p:'7 دنانير', n:'شامل التعديلات', i:'🎨', f:['تصميم عصري جذاب', 'رسوم وأيقونات', 'تنسيق مناسب للعرض'], msg:'مرحبا، مهتم بعرض تقديمي'},
-            turnitin: {t:'فحص Turnitin', s:'فحص نسبة الاستلال', p:'5 دنانير', n:'نتيجة فورية', i:'✅', f:['تقرير أصلي معتمد', 'فحص دقيق وموثوق', 'ملاحظة: حساب خاص ولا يتم تخزين المقال أو البحث (لن تظهر النسبة 100% عند فحصه مرة أخرى وستبقى النسبة ثابتة)'], msg:'مرحبا، أريد فحص Turnitin'},
-            portfolio: {t:'ملف الإنجاز', s:'تصميم إلكتروني', p:'12 دينار', n:'تصميم كامل', i:'📁', f:['تصميم عصري ومميز', 'تنظيم احترافي للمحتوى', 'سهل التصفح والمشاركة'], msg:'مرحبا، مهتم بملف الإنجاز'},
-            edit: {t:'تعديل الأبحاث', s:'حسب الملاحظات', p:'حسب الحجم', n:'يعتمد على التعديلات', i:'📄', f:['تحسين الصياغة', 'إعادة التنسيق', 'معالجة ملاحظات المرشد'], msg:'مرحبا، أحتاج تعديل بحث'},
-            tool: {t:'أداة التقييم', s:'النسخة الأساسية', p:'10 دنانير', n:'جاهزة للاستخدام', i:'📊', f:['أداة تقييم متكاملة', 'سهلة الاستخدام', 'قابلة للتخصيص'], msg:'مرحبا، أريد أداة التقييم'},
-            toolPlus: {t:'أداة التقييم بلس', s:'النسخة المتقدمة', p:'15 دينار', n:'مميزات إضافية', i:'⭐', f:['جميع مميزات الأساسية', 'تحليلات متقدمة', 'شامل تقرير الجلسة الإرشادية + دليل خاص بالمعلم يشرح سبب اختيار كل دليل لكل معيار'], msg:'مرحبا، أريد أداة التقييم بلس'},
-            terms: {t:'شروط الخدمة', s:'سياسة الاستخدام', p:'', n:'', i:'📜', f:['الخدمة للمساعدة الأكاديمية ونموذج استرشادي', 'المدفوعات نهائية وغير مستردة', 'حقوق الملكية للاستخدام الشخصي'], msg:'', noBtn:true},
-            privacy: {t:'الخصوصية', s:'بياناتك في أمان', p:'', n:'', i:'🔒', f:['سرية تامة', 'لا نشارك بياناتك', 'حذف البيانات بعد التسليم'], msg:'', noBtn:true}
+            silver: {t:'الباقة الفضية', s:'استرخِ تماماً — كل شي يتسلّم بدون ما تفتح المنصة', p:'25 دينار', n:'اشتراك شهري شامل', i:'🥈', f:['إنجاز جميع المهام الأسبوعية بمواعيدها وبجودة نموذجية', 'تسليم المهام على المنصة بالنيابة عنك — ما تفتح المنصة أبداً', 'إنجاز المساقات الجانبية بالكامل مع الحصول على شهاداتها', 'مراجعة وتدقيق لغوي وأكاديمي شامل قبل كل تسليم', 'تعديلات مجانية حتى رضاك التام عن كل مهمة', 'دعم فني مباشر عبر واتساب طوال فترة الاشتراك', 'ملاحظة: لا تشمل أداة التقييم والأبحاث والمقالات والعروض وملف الإنجاز (متوفرة كخدمات منفصلة)'], msg:'مرحبا، مهتم بالباقة الفضية — بدي ارتاح من المهام بالكامل'},
+            gold: {t:'الباقة الذهبية', s:'التجربة الملكية — من أول يوم لآخر يوم بدون ما تحمل هم', p:'45 دينار', n:'كل شيء مشمول — اجلس وارتاح', i:'👑', f:['إنجاز كامل لكل مهام الدبلوم من الألف إلى الياء بجودة نموذجية لا تُضاهى', 'تسليم جميع المهام على المنصة بالنيابة عنك + إنجاز المساقات الجانبية مع شهاداتها', 'البحث الاستقصائي بجميع مراحله ومهامه + عرض تقديمي احترافي تقدمه بثقة', 'المقالات النقدية والتحليلية والتأملية — كتابة أصلية بنسبة استلال مضمونة', 'أداة تقييم التطور المهني (البنائية والختامية) + تقرير الجلسة الإرشادية', 'تجهيز دروس إلكترونية وعروض تقديمية لجلسات التدريس المصغر', 'ملف إنجاز إلكتروني احترافي بتصميم مميز يجمع كل أعمالك', 'ضمان نسبة استلال 3-19% على جميع الأعمال المكتوبة'], msg:'مرحبا، مهتم بالباقة الذهبية — بدي التجربة الملكية الشاملة من أول يوم لآخر يوم'},
+            tasks: {t:'المهام الأسبوعية', s:'خلّص مهامك بدون ما تسهر', p:'2 دنانير', n:'دينارين لكل مهمة | 3 مهام بـ5 دنانير فقط', i:'📋', f:['أي مهمة أسبوعية بدينارين فقط — منتدى نقاشي أو غيره', 'عرض خاص: 3 مهام بـ5 دنانير فقط (وفّر دينار كل أسبوع)', 'إنجاز خلال 24-48 ساعة — تستلم قبل الـ Deadline بوقت كافي', 'مراجعة وتدقيق قبل التسليم لضمان القبول من أول مرة', 'تعديلات مجانية لو المرشد طلب أي تعديل'], msg:'مرحبا، بدي مساعدة بالمهام الأسبوعية'},
+            article: {t:'كتابة مقال أكاديمي', s:'مقال يليق باسمك أمام المصححين  ', p:'25 دينار', n:'شامل فحص الاستلال + التعديل حتى القبول النهائي', i:'✍️', f:['مقال أكاديمي مطابق 100% لتعليمات ومعايير الأكاديمية الملكية', 'كتابة أصلية بالكامل — ليس إعادة صياغة أو ترجمة', 'فحص Turnitin مجاني مرفق مع كل مقال كإثبات', 'مراجع وتوثيق APA أو MLA صحيح ومحدّث', 'تعديل المقال حسب التغذية الراجعة نقطة بنقطة'], msg:'مرحبا، محتاج كتابة مقال أكاديمي للدبلوم'},
+            research: {t:'البحث الاستقصائي', s:'مشروع تخرّجك جاهز بالكامل بين يديك', p:'75 دينار', n:'مشروع شامل من الألف للياء — كل مهمة وكل أداة', i:'🔍', f:['بحث استقصائي متكامل من الصفر — تصميم البحث وجمع البيانات وتحليلها والنتائج والتوصيات', 'شامل جميع مهام البحث: أدوات التقويم والتقييم + أوراق العمل + الملاحق', 'عرض تقديمي احترافي وجذاب جاهز لتقديمه أمام المرشد الأكاديمي', 'نسبة استلال مضمونة ومرفقة مع تقرير Turnitin', 'تعديلات مجانية حسب ملاحظات المرشد في كل مرحلة'], msg:'مرحبا، محتاج البحث الاستقصائي الشامل (مشروع التخرج) بكل مهامه وأدواته'},
+            presentation: {t:'عرض تقديمي', s:'اترك انطباع قوي عند المشرفين', p:'7 دنانير', n:'شامل التعديلات', i:'🎨', f:['تصميم عصري واحترافي يناسب السياق الأكاديمي', 'تنظيم المحتوى بشكل منطقي وسلس يسهّل عليك الشرح', 'رسوم وأيقونات وانتقالات تجذب الانتباه', 'تعديلات مجانية حتى رضاك التام'], msg:'مرحبا، محتاج عرض تقديمي احترافي'},
+            turnitin: {t:'فحص Turnitin', s:'تأكّد من نسبة الاستلال قبل التسليم', p:'5 دنانير', n:'تقرير خلال ساعات', i:'✅', f:['تقرير Turnitin أصلي ومعتمد — مش مواقع فحص مجانية', 'حساب مؤسسي خاص — لا يتم تخزين ملفك في قاعدة بيانات Turnitin', 'نسبة الاستلال تبقى ثابتة عند إعادة الفحص — ملفك لن يظهر كمكرر', 'نتيجة سريعة خلال ساعات قليلة'], msg:'مرحبا، بدي فحص Turnitin لملف'},
+            portfolio: {t:'ملف الإنجاز الإلكتروني', s:'اجمع كل إنجازاتك بتصميم يتكلم عنك', p:'12 دينار', n:'تصميم كامل جاهز للمشاركة', i:'📁', f:['تصميم عصري ومميز يعكس مسيرتك المهنية خلال الدبلوم', 'تنظيم احترافي لجميع الأعمال والأدلة حسب المعايير المطلوبة', 'سهل التصفح والمشاركة — رابط إلكتروني تقدمه للمرشد مباشرة', 'تعديلات مجانية لإضافة أعمال جديدة قبل التسليم النهائي'], msg:'مرحبا، محتاج تصميم ملف إنجاز إلكتروني'},
+            edit: {t:'تعديل الأبحاث', s:'عدّل بحثك حسب ملاحظات المرشد بدون صداع', p:'حسب الحجم', n:'السعر يعتمد على حجم التعديلات المطلوبة', i:'📄', f:['معالجة جميع ملاحظات المرشد الأكاديمي نقطة بنقطة', 'تحسين الصياغة الأكاديمية وتقوية الحجج والتحليل', 'إعادة تنسيق وترتيب حسب القالب المطلوب', 'أرسل ملاحظات المرشد ونرد عليك بالسعر والمدة خلال ساعة'], msg:'مرحبا، عندي بحث محتاج تعديلات حسب ملاحظات المرشد'},
+            tool: {t:'أداة التقييم', s:'أداة جاهزة مبنية على معايير الأكاديمية + تقرير الجلسة', p:'12 دينار', n:'شاملة تقرير الجلسة الإرشادية', i:'📊', f:['أداة تقييم التطور المهني مبنية على المعايير المهنية الفرعية المطلوبة', 'أدلة واضحة ومنظمة لكل معيار — جاهزة للتعبئة', 'تعبئة تقرير الجلسة الإرشادية بالكامل — جاهز ومنسّق', 'قابلة للتخصيص حسب تخصصك ومدرستك', 'شرح مبسّط لطريقة استخدام الأداة وتعبئتها'], msg:'مرحبا، محتاج أداة تقييم التطور المهني مع تقرير الجلسة'},
+            toolPlus: {t:'أداة التقييم بلس', s:'حزمة الثقة الكاملة — ادخل الجلسة الإرشادية وأنت جاهز لأي سؤال', p:'17 دينار', n:'كل شي تحتاجه للجلسة الإرشادية بمكان واحد', i:'⭐', f:['أداة التقييم الأساسية: دليل مناسب لكل معيار + روابط تشعبية + تظليل المستوى المناسب', 'دليل خاص بالمعلم يشرح سبب اختيار كل دليل لكل معيار فرعي بالتفصيل', 'شرح اختيار المستوى (مبتدئ، متمكن، خبير) مع تعليل مقنع لكل مستوى ولكل دليل', 'سؤال متوقع لكل معيار مع إجابة نموذجية مبنية على المهام المنجزة فعلياً', 'دليل تحضيري للجلسة يتضمن الأسئلة الأكثر تكراراً من المرشدين مع إجاباتها', 'تعبئة تقرير الجلسة الإرشادية بالكامل — جاهز ومنسّق', 'باختصار: حزمة كاملة تمنحك الثقة التامة للجلسة الإرشادية — أي سؤال يُطرح عندك إجابته جاهزة'], msg:'مرحبا، محتاج أداة التقييم بلس — بدي الحزمة الكاملة للجلسة الإرشادية'},
+            terms: {t:'شروط الخدمة', s:'سياسة الاستخدام', p:'', n:'', i:'📜', f:['الخدمة للمساعدة الأكاديمية وتقديم نماذج استرشادية احترافية', 'المدفوعات نهائية وغير مستردة بعد بدء العمل', 'حقوق الملكية للاستخدام الشخصي الأكاديمي فقط'], msg:'', noBtn:true},
+            privacy: {t:'الخصوصية', s:'بياناتك في أمان تام', p:'', n:'', i:'🔒', f:['سرية تامة — لا نشارك اسمك أو معلوماتك مع أي طرف', 'لا نعيد استخدام أعمالك لعملاء آخرين', 'حذف جميع البيانات والملفات بعد التسليم النهائي'], msg:'', noBtn:true}
         };
 
         // --- Logic ---
