@@ -231,14 +231,15 @@
         /* Pricing */
         .card-price { font-size: 2.8rem; font-weight: 900; margin: 1.2rem 0; color: #fff; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .card-price span { font-size: 1rem; color: var(--gold-secondary); font-weight: 500; }
+        .card-price strong { font-size: 1.15em; color: var(--gold-light); }
         .feature-list { list-style: none; margin-bottom: 2rem; text-align: right; }
         .feature-list li { display: flex; align-items: flex-start; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.92rem; }
         .feature-list li:last-child { border: 0; }
         .check { color: var(--bg-deep); font-size: 0.75rem; background: linear-gradient(135deg, var(--gold-light), var(--gold-primary)); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; box-shadow: 0 0 10px rgba(255,215,0,0.2); }
 
-        .old-price { text-decoration: line-through; color: rgba(255, 255, 255, 0.4); font-size: 0.55em; font-weight: 500; margin-left: 0.4rem; vertical-align: middle; }
+        .old-price { text-decoration: line-through; color: #ff4757; text-decoration-color: #ff4757; font-size: 0.5em; font-weight: 500; margin-left: 0.6rem; vertical-align: middle; opacity: 0.9; }
         .offer-text { color: var(--gold-primary); font-size: 0.85rem; font-weight: 800; margin-bottom: 1rem; padding: 0.4rem 0.8rem; background: rgba(230,200,117,0.08); border-radius: 6px; border: 1px dashed var(--card-border); display: inline-block; }
-        .save-badge { position: absolute; top: -12px; right: -15px; background: linear-gradient(135deg, #ff416c, #ff4b2b); color: white !important; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 900; box-shadow: 0 4px 10px rgba(255, 65, 108, 0.3); transform: rotate(5deg); z-index: 10; letter-spacing: 0.5px; text-shadow: none; }
+        .save-badge { position: absolute; top: -22px; right: -25px; background: linear-gradient(135deg, #ff416c, #ff4b2b); color: white !important; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 900; box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4); transform: rotate(8deg); z-index: 10; letter-spacing: 0.5px; text-shadow: none; white-space: nowrap; }
 
         .smart-card.featured {
             background: linear-gradient(145deg, rgba(255, 215, 0, 0.07), rgba(0, 77, 64, 0.35));
@@ -645,7 +646,7 @@
                     <h3 class="card-title" style="color:var(--gold-primary)">البحث الاستقصائي</h3>
                     <div class="card-price" style="font-size: 2.2rem; position: relative; display: inline-block;">
                         <span class="old-price">75</span><strong>55</strong> <span style="font-size: 0.9rem">دينار</span>
-                        <div class="save-badge" style="font-size: 0.7rem; top:-8px; right:-15px;">وفر 20 دينار</div>
+                        <div class="save-badge" style="font-size: 0.75rem; top:-20px; right:-25px;">وفر 20 دينار</div>
                     </div>
                     <br><div class="offer-text" style="margin-top:0.5rem; margin-bottom:0.5rem; font-size:0.75rem; padding: 0.3rem 0.6rem;">عرض لفترة محدودة والمقاعد محدودة</div>
                     <p class="card-desc">مشروع التخرج الشامل بجميع أدواته وفصوله + عرض تقديمي</p>
